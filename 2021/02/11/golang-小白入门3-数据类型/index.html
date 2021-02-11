@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      284 字
+      1.4k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      17
        分钟
     </span>
   
@@ -227,7 +227,7 @@
             <h1 style="display: none">golang 小白入门3:数据类型</h1>
             
             <div class="markdown-body">
-              <h1 id="golang-小白入门3-数据类型"><a href="#golang-小白入门3-数据类型" class="headerlink" title="golang 小白入门3:数据类型"></a>golang 小白入门3:数据类型</h1><h2 id="3-0-基本数据类型"><a href="#3-0-基本数据类型" class="headerlink" title="3.0 基本数据类型"></a>3.0 基本数据类型</h2><p>以下是go中可用的基本数据类型</p>
+              <h1 id="golang-小白入门3-数据类型"><a href="#golang-小白入门3-数据类型" class="headerlink" title="golang 小白入门3:数据类型"></a>golang 小白入门3:数据类型</h1><h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p>以下是go中可用的基本数据类型</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210211140823095.png" srcset="/img/loading.gif" alt="image-20210211140823095"></p>
 <h2 id="3-1-布尔型bool"><a href="#3-1-布尔型bool" class="headerlink" title="3.1 布尔型bool"></a>3.1 布尔型bool</h2><p>布尔型的值只可以是常量 true 或者 false。一个简单的例子：var b bool = true</p>
 <h2 id="3-2-数值型"><a href="#3-2-数值型" class="headerlink" title="3.2 数值型"></a>3.2 数值型</h2><h3 id="3-2-1-整数型"><a href="#3-2-1-整数型" class="headerlink" title="3.2.1 整数型"></a>3.2.1 整数型</h3><ul>
@@ -262,7 +262,11 @@
 </ul>
 <blockquote>
 <p>int和uint:根据底层平台，表示32或64位整数。除非需要使用特定大小的整数，否则通常应该使用int来表示整数。</p>
+</blockquote>
+<blockquote>
 <p>大小:32位系统32位，64位系统64位。</p>
+</blockquote>
+<blockquote>
 <p>范围:-2147483648到2147483647的32位系统和-9223372036854775808到9223372036854775807的64位系统。</p>
 </blockquote>
 <h3 id="3-2-2-浮点型"><a href="#3-2-2-浮点型" class="headerlink" title="3.2.2 浮点型"></a>3.2.2 浮点型</h3><ul>
@@ -279,6 +283,257 @@
 <p>64 位实数和虚数</p>
 </li>
 </ul>
+<h3 id="3-2-3-其他"><a href="#3-2-3-其他" class="headerlink" title="3.2.3 其他"></a>3.2.3 其他</h3><ul>
+<li><p>byte</p>
+<p>类似 uint8</p>
+</li>
+<li><p>rune</p>
+<p>类似 int32</p>
+</li>
+<li><p>uint</p>
+<p>32 或 64 位</p>
+</li>
+<li><p>int</p>
+<p>与 uint 一样大小</p>
+</li>
+<li><p>uintptr</p>
+<p>无符号整型，用于存放一个指针</p>
+</li>
+</ul>
+<h2 id="3-3-字符串型"><a href="#3-3-字符串型" class="headerlink" title="3.3 字符串型"></a>3.3 字符串型</h2><p>字符串就是一串固定长度的字符连接起来的字符序列。Go的字符串是由单个字节连接起来的。Go语言的字符串的字节使用UTF-8编码标识Unicode文本</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> str <span class="hljs-keyword">string</span><br>str = <span class="hljs-string">&quot;Hello World&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="3-4-数据类型转换"><a href="#3-4-数据类型转换" class="headerlink" title="3.4 数据类型转换"></a>3.4 数据类型转换</h2><p>语法格式：Type(Value)</p>
+<p>常数：在有需要的时候，会自动转型</p>
+<p>变量：需要手动转型 T(V)</p>
+<p>注意点：兼容类型可以转换</p>
+<h1 id="复合类型（派生类型）"><a href="#复合类型（派生类型）" class="headerlink" title="复合类型（派生类型）"></a>复合类型（派生类型）</h1><p>1、指针类型（Pointer）</p>
+<p>2、数组类型</p>
+<p>3、结构化类型(struct)</p>
+<p>4、Channel 类型</p>
+<p>5、函数类型</p>
+<p>6、切片类型</p>
+<p>7、接口类型（interface）</p>
+<p>8、Map 类型</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>表达式：(a + b) * c</p>
+<p>  a,b,c叫做操作数</p>
+<p>  +，*，叫做运算符</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">\+ - * / %(求余) ++ --<br></code></pre></td></tr></table></figure>
+
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">== != &gt; &lt; &gt;= &lt;=<br></code></pre></td></tr></table></figure>
+
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;&amp;</td>
+<td>所谓逻辑与运算符。如果两个操作数都非零，则条件变为真</td>
+</tr>
+<tr>
+<td>||</td>
+<td>所谓的逻辑或操作。如果任何两个操作数是非零，则条件变为真</td>
+</tr>
+<tr>
+<td>!</td>
+<td>所谓逻辑非运算符。使用反转操作数的逻辑状态。如果条件为真，那么逻辑非操后结果为假</td>
+</tr>
+</tbody></table>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A&amp;B</th>
+<th>A|B</th>
+<th>A^B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>这里最难理解的就是^了，只要认为AB两者都相同的时候，为0，其他都为1</p>
+<p>假设A为60，B为13</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>二进制与操作副本位的结果，如果它存在于两个操作数</td>
+<td>(A &amp; B) = 12, 也就是 0000 1100</td>
+</tr>
+<tr>
+<td>|</td>
+<td>二进制或操作副本，如果它存在一个操作数</td>
+<td>(A | B) = 61, 也就是 0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>二进制异或操作副本，如果它被设置在一个操作数就是按位取非</td>
+<td>(A ^ B) = 49, 也就是 0011 0001</td>
+</tr>
+<tr>
+<td>&amp;^</td>
+<td>二进制位清空&amp;^</td>
+<td>(A&amp;^B)=48，也就是110000</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>二进制左移位运算符。左边的操作数的值向左移动由右操作数指定的位数</td>
+<td>A &lt;&lt; 2 =240 也就是 1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>二进制向右移位运算符。左边的操作数的值由右操作数指定的位数向右移动</td>
+<td>A &gt;&gt; 2 = 15 也就是 0000 1111</td>
+</tr>
+</tbody></table>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>简单的赋值操作符，分配值从右边的操作数左侧的操作数</td>
+<td>C = A + B 将分配A + B的值到C</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>相加并赋值运算符，它增加了右操作数左操作数和分配结果左操作数</td>
+<td>C += A 相当于 C = C + A</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减和赋值运算符，它减去右操作数从左侧的操作数和分配结果左操作数</td>
+<td>C -= A 相当于 C = C - A</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘法和赋值运算符，它乘以右边的操作数与左操作数和分配结果左操作数</td>
+<td>C *= A 相当于 C = C * A</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除法赋值运算符，它把左操作数与右操作数和分配结果左操作数</td>
+<td>C /= A 相当于 C = C / A</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>模量和赋值运算符，它需要使用两个操作数的模量和分配结果左操作数</td>
+<td>C %= A 相当于 C = C % A</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>左移位并赋值运算符</td>
+<td>C &lt;&lt;= 2 相同于 C = C &lt;&lt; 2</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>向右移位并赋值运算符</td>
+<td>C &gt;&gt;= 2 相同于 C = C &gt;&gt; 2</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>按位与赋值运算符</td>
+<td>C &amp;= 2 相同于 C = C &amp; 2</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>按位异或并赋值运算符</td>
+<td>C ^= 2 相同于 C = C ^ 2</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>按位或并赋值运算符</td>
+<td>C |= 2 相同于 C = C | 2</td>
+</tr>
+</tbody></table>
+<h2 id="优先级运算符优先级"><a href="#优先级运算符优先级" class="headerlink" title="优先级运算符优先级"></a><strong>优先级运算符优先级</strong></h2><p>有些运算符拥有较高的优先级，二元运算符的运算方向均是从左至右。下表列出了所有运算符以及它们的优先级，由上至下代表优先级由高到低：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>~ ! ++ –</td>
+</tr>
+<tr>
+<td>6</td>
+<td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
+</tr>
+<tr>
+<td>5</td>
+<td>+ -  ^</td>
+</tr>
+<tr>
+<td>4</td>
+<td>== != &lt; &lt;= &gt;= &gt;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&lt;-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>||</td>
+</tr>
+</tbody></table>
+<p>当然，你可以通过使用括号来临时提升某个表达式的整体运算优先级。</p>
+<blockquote>
+<p>千锋Go语言的学习群：784190273</p>
+<p>作者B站：</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/353694001">https://space.bilibili.com/353694001</a></p>
+<p>对应视频地址：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av56018934">https://www.bilibili.com/video/av56018934</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av47467197">https://www.bilibili.com/video/av47467197</a></p>
+<p>源代码：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rubyhan1314/go_foundation">https://github.com/rubyhan1314/go_foundation</a></p>
+</blockquote>
 
             </div>
             <hr>
