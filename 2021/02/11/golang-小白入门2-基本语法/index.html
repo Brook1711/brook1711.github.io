@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      826 字
+      1.4k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      16
        分钟
     </span>
   
@@ -238,29 +238,22 @@
 </blockquote>
 <h3 id="2-1-1-声明"><a href="#2-1-1-声明" class="headerlink" title="2.1.1 声明"></a>2.1.1 声明</h3><p>第一种，指定变量类型，声明后若不赋值，使用默认值</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> name <span class="hljs-keyword">type</span><br><br>name = value<br></code></pre></td></tr></table></figure>
-
 <p>第二种，根据值自行判定变量类型(类型推断Type inference)</p>
 <p>如果一个变量有一个初始值，Go将自动能够使用初始值来推断该变量的类型。因此，如果变量具有初始值，则可以省略变量声明中的类型。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> name = value<br></code></pre></td></tr></table></figure>
-
 <p>第三种，省略var, 注意 :=左侧的变量不应该是已经声明过的(多个变量同时声明时，至少保证一个是新变量)，否则会导致编译错误(简短声明)</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">name := value<br><span class="hljs-comment">// 例如</span><br><span class="hljs-keyword">var</span> a <span class="hljs-keyword">int</span> = <span class="hljs-number">10</span><br><span class="hljs-keyword">var</span> b = <span class="hljs-number">10</span><br>c : = <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
-
 <blockquote>
 <p>这种方式它只能被用在函数体内，而不可以用于全局变量的声明与赋值</p>
 </blockquote>
 <p><strong>示例代码：</strong></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">var</span> a = <span class="hljs-string">&quot;Hello&quot;</span><br><span class="hljs-keyword">var</span> b <span class="hljs-keyword">string</span> = <span class="hljs-string">&quot;World&quot;</span><br><span class="hljs-keyword">var</span> c <span class="hljs-keyword">bool</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">println</span>(a, b, c)<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <h3 id="2-1-2-多变量声明"><a href="#2-1-2-多变量声明" class="headerlink" title="2.1.2 多变量声明"></a>2.1.2 多变量声明</h3><p>第一种，以逗号分隔，声明与赋值分开，若不赋值，存在默认值</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> name1, name2, name3 <span class="hljs-keyword">type</span><br>name1, name2, name3 = v1, v2, v3<br></code></pre></td></tr></table></figure>
-
 <p>第二种，直接赋值，下面的变量类型可以是不同的类型</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> name1, name2, name3 = v1, v2, v3<br></code></pre></td></tr></table></figure>
-
 <p>第三种，集合类型</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> (<br>    name1 type1<br>    name2 type2<br>)<br></code></pre></td></tr></table></figure>
-
 <p><strong>注意事项：</strong></p>
 <ul>
 <li><p>变量必须先定义才能使用</p>
@@ -282,7 +275,33 @@
 <p>如果你在定义变量 a 之前使用它，则会得到编译错误 undefined: a。如果你声明了一个局部变量却没有在相同的代码块中使用它，同样会得到编译错误，</p>
 <p>在同一个作用域中，已存在同名的变量，则之后的声明初始化，则退化为赋值操作。但这个前提是，最少要有一个新的变量被定义，且在同一作用域，例如，下面的y就是新定义的变量</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	x := <span class="hljs-number">140</span><br>	fmt.Println(&amp;x)<br>	x, y := <span class="hljs-number">200</span>, <span class="hljs-string">&quot;abc&quot;</span><br>	fmt.Println(&amp;x, x)<br>	fmt.Print(y)<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="2-2-常量"><a href="#2-2-常量" class="headerlink" title="2.2 常量"></a>2.2 常量</h2><h3 id="2-2-1-普通常量"><a href="#2-2-1-普通常量" class="headerlink" title="2.2.1 普通常量"></a>2.2.1 普通常量</h3><p>常量是一个简单值的标识符，在程序运行时，不会被修改的量。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> identifier [<span class="hljs-keyword">type</span>] = value<br><span class="hljs-comment">//显式类型定义： </span><br><span class="hljs-keyword">const</span> b <span class="hljs-keyword">string</span> = <span class="hljs-string">&quot;abc&quot;</span><br><span class="hljs-comment">//隐式类型定义： </span><br><span class="hljs-keyword">const</span> b = <span class="hljs-string">&quot;abc&quot;</span><br></code></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>   <span class="hljs-keyword">const</span> LENGTH <span class="hljs-keyword">int</span> = <span class="hljs-number">10</span><br>   <span class="hljs-keyword">const</span> WIDTH <span class="hljs-keyword">int</span> = <span class="hljs-number">5</span>   <br>   <span class="hljs-keyword">var</span> area <span class="hljs-keyword">int</span><br>   <span class="hljs-keyword">const</span> a, b, c = <span class="hljs-number">1</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;str&quot;</span> <span class="hljs-comment">//多重赋值</span><br><br>   area = LENGTH * WIDTH<br>   fmt.Printf(<span class="hljs-string">&quot;面积为 : %d&quot;</span>, area)<br>   <span class="hljs-built_in">println</span>()<br>   <span class="hljs-built_in">println</span>(a, b, c)   <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>常量可以作为枚举，常量组</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    Unknown = <span class="hljs-number">0</span><br>    Female = <span class="hljs-number">1</span><br>    Male = <span class="hljs-number">2</span><br>)<br></code></pre></td></tr></table></figure>
+<p>常量组中如不指定类型和初始化值，则与上一行非空常量右值相同</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;fmt&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	<span class="hljs-keyword">const</span> (<br>		x <span class="hljs-keyword">uint16</span> = <span class="hljs-number">16</span><br>		y<br>		s = <span class="hljs-string">&quot;abc&quot;</span><br>		z<br>	)<br>	fmt.Printf(<span class="hljs-string">&quot;%T,%v\n&quot;</span>, y, y)<br>	fmt.Printf(<span class="hljs-string">&quot;%T,%v\n&quot;</span>, z, z)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>注意事项：</p>
+<ul>
+<li><p>常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型</p>
+</li>
+<li><p>不曾使用的常量，在编译的时候，是不会报错的</p>
+</li>
+<li><p>显示指定类型的时候，必须确保常量左右值类型一致，需要时可做显示类型转换。这与变量就不一样了，变量是可以是不同的类型值</p>
+</li>
+</ul>
+<h3 id="2-2-2-iota"><a href="#2-2-2-iota" class="headerlink" title="2.2.2 iota"></a>2.2.2 iota</h3><p>iota，特殊常量，可以认为是一个可以被编译器修改的常量</p>
+<p>iota 可以被用作枚举值：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    a = <span class="hljs-literal">iota</span><br>    b = <span class="hljs-literal">iota</span><br>    c = <span class="hljs-literal">iota</span><br>)<br></code></pre></td></tr></table></figure>
+<p>第一个 iota 等于 0，每当 iota 在新的一行被使用时，它的值都会自动加 1；所以 a=0, b=1, c=2 可以简写为如下形式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">const</span> (<br>    a = <span class="hljs-literal">iota</span><br>    b<br>    c<br>)<br></code></pre></td></tr></table></figure>
+<p>示例代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    <span class="hljs-keyword">const</span> (<br>            a = <span class="hljs-literal">iota</span>   <span class="hljs-comment">//0</span><br>            b          <span class="hljs-comment">//1</span><br>            c          <span class="hljs-comment">//2</span><br>            d = <span class="hljs-string">&quot;ha&quot;</span>   <span class="hljs-comment">//独立值，iota += 1</span><br>            e          <span class="hljs-comment">//&quot;ha&quot;   iota += 1</span><br>            f = <span class="hljs-number">100</span>    <span class="hljs-comment">//iota +=1</span><br>            g          <span class="hljs-comment">//100  iota +=1</span><br>            h = <span class="hljs-literal">iota</span>   <span class="hljs-comment">//7,恢复计数</span><br>            i          <span class="hljs-comment">//8</span><br>    )<br>    fmt.Println(a,b,c,d,e,f,g,h,i)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>如果中断iota自增，则必须显式恢复。且后续自增值按行序递增</p>
+<p>自增默认是int类型，可以自行进行显示指定类型</p>
+<p>数字常量不会分配存储空间，无须像变量那样通过内存寻址来取值，因此无法获取地址</p>
 
             </div>
             <hr>
