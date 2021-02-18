@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      963 字
+      1.2k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      18
        分钟
     </span>
   
@@ -265,7 +265,14 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> threedim [<span class="hljs-number">5</span>][<span class="hljs-number">10</span>][<span class="hljs-number">4</span>]<span class="hljs-keyword">int</span><br></code></pre></td></tr></table></figure>
 <p>三维数组</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs go">a = [<span class="hljs-number">3</span>][<span class="hljs-number">4</span>]<span class="hljs-keyword">int</span>&#123;  <br> &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125; ,   <span class="hljs-comment">/*  第一行索引为 0 */</span><br> &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125; ,   <span class="hljs-comment">/*  第二行索引为 1 */</span><br> &#123;<span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>&#125;   <span class="hljs-comment">/*  第三行索引为 2 */</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="7-2-数组是值类型"><a href="#7-2-数组是值类型" class="headerlink" title="7.2 数组是值类型"></a>7.2 数组是值类型</h2><p>数组是值类型</p>
+<p>Go中的数组是值类型，而不是引用类型。这意味着当它们被分配给一个新变量时，将把原始数组的副本分配给新变量。如果对新变量进行了更改，则不会在原始数组中反映。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;  <br>    a := [...]<span class="hljs-keyword">string</span>&#123;<span class="hljs-string">&quot;USA&quot;</span>, <span class="hljs-string">&quot;China&quot;</span>, <span class="hljs-string">&quot;India&quot;</span>, <span class="hljs-string">&quot;Germany&quot;</span>, <span class="hljs-string">&quot;France&quot;</span>&#125;<br>    b := a <span class="hljs-comment">// a copy of a is assigned to b</span><br>    b[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;Singapore&quot;</span><br>    fmt.Println(<span class="hljs-string">&quot;a is &quot;</span>, a)<br>    fmt.Println(<span class="hljs-string">&quot;b is &quot;</span>, b) <br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs inform7">a <span class="hljs-keyword">is</span> <span class="hljs-comment">[USA China India Germany France]</span>  <br>b <span class="hljs-keyword">is</span> <span class="hljs-comment">[Singapore China India Germany France]</span> <br></code></pre></td></tr></table></figure>
+<p>数组的大小是类型的一部分。因此[5]int和[25]int是不同的类型。因此，数组不能被调整大小。不要担心这个限制，因为切片的存在是为了解决这个问题。</p>
+<p>错误示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;  <br>    a := [<span class="hljs-number">3</span>]<span class="hljs-keyword">int</span>&#123;<span class="hljs-number">5</span>, <span class="hljs-number">78</span>, <span class="hljs-number">8</span>&#125;<br>    <span class="hljs-keyword">var</span> b [<span class="hljs-number">5</span>]<span class="hljs-keyword">int</span><br>    b = a <span class="hljs-comment">//not possible since [3]int and [5]int are distinct types</span><br>&#125;<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -298,6 +305,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/02/18/golang%E5%AE%98%E7%BD%91%E6%95%99%E7%A8%8B1-%E5%88%9D%E6%8E%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">golang官网教程1 初探</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
