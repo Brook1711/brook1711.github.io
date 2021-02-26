@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6 字
+      964 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      14
        分钟
     </span>
   
@@ -227,7 +227,59 @@
             <h1 style="display: none">pi zero学习1：入门</h1>
             
             <div class="markdown-body">
-              <h1 id="pi-zero学习1：入门"><a href="#pi-zero学习1：入门" class="headerlink" title="pi zero学习1：入门"></a>pi zero学习1：入门</h1>
+              <h1 id="pi-zero学习1：入门"><a href="#pi-zero学习1：入门" class="headerlink" title="pi zero学习1：入门"></a>pi zero学习1：入门</h1><p>官网教程地址：</p>
+<p><a target="_blank" rel="noopener" href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up">https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up</a></p>
+<h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><img src="https://projects-static.raspberrypi.org/projects/raspberry-pi-setting-up/05f98c4cac11e7fc2ead84db91ff9f49dc23176c/en/images/pi-plug-in.gif" srcset="/img/loading.gif" alt="plug in the pi"></p>
+<p>这里的教程是针对树莓派4的板子，但是应该是与pi zero兼容。</p>
+<p>具体参数如下</p>
+<p><strong>Technical Specifications</strong></p>
+<p>The Raspberry Pi Zero W extends the Pi Zero family. Launched at the end of February 2017, the Pi Zero W has all the functionality of the original Pi Zero, but comes with added connectivity, consisting of:</p>
+<ul>
+<li>802.11 b/g/n wireless LAN</li>
+<li>Bluetooth 4.1</li>
+<li>Bluetooth Low Energy (BLE)</li>
+</ul>
+<p>Like the Pi Zero, it also has:</p>
+<ul>
+<li>1GHz, single-core CPU</li>
+<li>512MB RAM</li>
+<li>Mini HDMI and USB On-The-Go ports</li>
+<li>Micro USB power</li>
+<li>HAT-compatible 40-pin header</li>
+<li>Composite video and reset headers</li>
+<li>CSI camera connector</li>
+</ul>
+<h2 id="2、使用SD卡启动"><a href="#2、使用SD卡启动" class="headerlink" title="2、使用SD卡启动"></a>2、使用SD卡启动</h2><h3 id="Raspberry-Pi-Imager"><a href="#Raspberry-Pi-Imager" class="headerlink" title="Raspberry Pi Imager"></a>Raspberry Pi Imager</h3><p>树莓派团队开发了一款可以下载并自动安装景象到sd卡的软件，该软件可以在win、mac、linux平台上运行，其下载地位：</p>
+<p><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a></p>
+<p>选择适合自己的操作系统</p>
+<p><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/">https://www.raspberrypi.org/software/operating-systems/</a></p>
+<p>这里我选择的是Raspberry Pi OS Lite，就是不带桌面而且不带推荐软件，是最小系统。</p>
+<p>打开刚才准备的Raspberry Pi Imager：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226103914138.png" srcset="/img/loading.gif" alt="image-20210226103914138"></p>
+<p>选择要烧录的镜像（就是刚刚下载的Raspberry Pi OS Lite）选择要烧录的sd卡，点击write按钮。</p>
+<h2 id="3、ssh连接"><a href="#3、ssh连接" class="headerlink" title="3、ssh连接"></a>3、ssh连接</h2><h3 id="使用wifi-ssh链接"><a href="#使用wifi-ssh链接" class="headerlink" title="使用wifi+ssh链接"></a>使用wifi+ssh链接</h3><p>在SD卡中新建文件，命名为wpa_supplicant.conf，输入如下内容并保存。</p>
+<p>在SD卡中新建文件，命名为ssh，内容为空。</p>
+<h3 id="使用usb连接线连结"><a href="#使用usb连接线连结" class="headerlink" title="使用usb连接线连结"></a>使用usb连接线连结</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e">https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e</a></p>
+<h2 id="4、网络配置"><a href="#4、网络配置" class="headerlink" title="4、网络配置"></a>4、网络配置</h2><p><a target="_blank" rel="noopener" href="https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e">https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e</a></p>
+<p>在进行配置之前需要开启root登陆</p>
+<p>首先设置密码</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo passwd root</span><br></code></pre></td></tr></table></figure>
+<p>启用 root 账号</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo passwd <span class="hljs-comment">--unlock root </span><br></code></pre></td></tr></table></figure>
+<p>启用 root 账号登录</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>ssh/sshd_config<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#PermitRootLogin prohibit-password</span><br>PermitRootLogin yes<br></code></pre></td></tr></table></figure>
+<p>Ctrl + W 快捷键<br>搜索 PermitRootLogin prohibit-password<br>改为PermitRootLogin yes 并删掉#号<br>或者直接新建一行。</p>
+<p>Ctrl + O 快捷键 保存</p>
+<p>Ctrl + X 快捷键 退出 Nano 编辑器</p>
+<p>这里使用usb连接ssh，编辑<code>/etc/network/interfaces</code>，添加以下内容：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">allow</span></span>-hotplug usb<span class="hljs-number">0</span><br><span class="hljs-attribute">iface</span> usb<span class="hljs-number">0</span> inet static<br>    <span class="hljs-attribute">address</span> <span class="hljs-number">192.168.2.2</span><br>    <span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br>    <span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.2.1</span><br></code></pre></td></tr></table></figure>
+<h2 id="5、换源"><a href="#5、换源" class="headerlink" title="5、换源"></a>5、换源</h2><p>1、首先编辑 /etc/apt/sources.list 文件，没装vim之前，推荐用 nano 命令编辑。在修改之前先把源列表备份，然后再修改sources.list。命令如下：<br>[mw_shl_code=bash,true]cp /etc/apt/sources.list /etc/apt/sources.list.bak  #备份为 sources.list.bak<br>nano /etc/apt/sources.list    #编辑sources.list 文件[/mw_shl_code]<br>进入编辑界面，删除原有的内容或者用#注释掉原来的源，添加下方的源：<br>[mw_shl_code=bash,true]#deb <a target="_blank" rel="noopener" href="http://mirrordirector.raspbian.org/raspbian/">http://mirrordirector.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br># Uncomment line below then ‘apt-get update’ to enable ‘apt-get source’<br>#deb-src <a target="_blank" rel="noopener" href="http://archive.raspbian.org/raspbian/">http://archive.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br>deb <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi<br>deb-src <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi[/mw_shl_code]<br>或其他源<br>[mw_shl_code=bash,true]#大连东软信息学院(北方用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#中国科学技术大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#清华大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#重庆大学(中西部用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi[/mw_shl_code]<br>注意：镜像区别jessie或wheezy版本，软件源也对应一样。</p>
+<h2 id="6、备份"><a href="#6、备份" class="headerlink" title="6、备份"></a>6、备份</h2><p>查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查询盘符</span><br>diskutil list <br><span class="hljs-comment"># 下面图片中的dev/disk2既对应的树莓派的TF卡</span><br></code></pre></td></tr></table></figure>
+<p>dd命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#使用dd进行备份，同时使用gzip将备份文件进行压缩</span><br>sudo dd <span class="hljs-keyword">if</span>=/dev/rdiskx bs=1m | gzip &gt; /path/to/backupImage.gz<br><span class="hljs-comment">#将“/dev/rdiskx ”改成您 Micro SD 卡的所在位置， if 參數是指定資料來源 (也就是 Micro #SD 卡)   of 則是指定備份影像檔的儲存路徑與檔案名稱 </span><br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -258,6 +310,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/02/26/pi-zero%E5%AD%A6%E4%B9%A02-%E7%A9%BA%E5%BF%83%E6%9D%AF%E9%A9%B1%E5%8A%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">pi-zero学习2: 空心杯驱动</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
