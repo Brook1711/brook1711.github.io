@@ -179,7 +179,135 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A04-pi-dashboard/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226100542033.png" srcset="/img/loading.gif" alt="pi-zero学习4: pi dashboard">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A04-pi-dashboard/">pi-zero学习4: pi dashboard</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A04-pi-dashboard/">
+          
+          
+            
+          
+          pi-zero学习4: pi dashboard实时监控树莓派的网页
+项目地址：
+https://github.com/spoonysonny/pi-dashboard
+1、安装lnmp1sudo apt-get update
+
+安装Nginx，输入下面的命令
+1sudo apt-get install -y nginx
+
+完全卸载：
+123456$ sudo apt-get --purge re
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-27 10:40" pubdate>
+              2021-02-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/coding/">coding</a>
+            
+              <a href="/categories/coding/pi-zero/">pi zero</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/pi-zero/">pi_zero</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A03-%E5%91%BC%E5%90%B8%E7%81%AF%E6%8E%A7%E5%88%B6/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226100542033.png" srcset="/img/loading.gif" alt="pi-zero学习3: 呼吸灯控制">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A03-%E5%91%BC%E5%90%B8%E7%81%AF%E6%8E%A7%E5%88%B6/">pi-zero学习3: 呼吸灯控制</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A03-%E5%91%BC%E5%90%B8%E7%81%AF%E6%8E%A7%E5%88%B6/">
+          
+          
+            
+          
+          pi-zero学习3: 呼吸灯控制代码：
+12345678910111213141516171819202122232425262728293031323334import RPi.GPIO as GPIO        # 引入GPIO模块      from time import sleep              # 引入time模块      LedPin = 19    # 引脚定义
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-27 10:17" pubdate>
+              2021-02-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/coding/">coding</a>
+            
+              <a href="/categories/coding/pi-zero/">pi zero</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/pi-zero/">pi_zero</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/02/26/pi-zero%E5%AD%A6%E4%B9%A02-%E7%A9%BA%E5%BF%83%E6%9D%AF%E9%A9%B1%E5%8A%A8/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226100542033.png" srcset="/img/loading.gif" alt="pi-zero学习2: 空心杯驱动">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/2021/02/26/pi-zero%E5%AD%A6%E4%B9%A02-%E7%A9%BA%E5%BF%83%E6%9D%AF%E9%A9%B1%E5%8A%A8/">pi-zero学习2: 空心杯驱动</a>
@@ -191,7 +319,15 @@
           
             
           
-          
+          pi-zero学习2: 空心杯驱动1、port map
+打算采用pwm输入电调进行空心杯控驱动。
+2、设备清单2.1、电调6A单向有刷电调1S 3.7V
+购买链接：
+
+4.0微CAy8cyVtpcZ啊 https://m.tb.cn/h.4lma220?sm=661059  旋风航模型6A有刷电调1S 3.7V空心杯1020电机2g舵机小型DIY固定翼
+
+2.2、电池1S 600 毫安时
+###2
         </a>
       </p>
 
@@ -205,6 +341,22 @@
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/coding/">coding</a>
+            
+              <a href="/categories/coding/pi-zero/">pi zero</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/pi-zero/">pi_zero</a>
+            
+          </div>
         
       </div>
     </article>
@@ -617,7 +769,8 @@ https://blog.golang.org/go1.16
           golang小白入门4 键盘输入输出输出4.1 fmt包fmt包实现了类似C语言printf和scanf的格式化I/O。格式化verb（’verb’）源自C语言但更简单。
 详见官网fmt的API：https://golang.google.cn/pkg/fmt/
 4.2 导入包1import &quot;fmt&quot;
-4.3 常用打印函数4.3.1 打印func Print(a …inter
+
+4.3 常用打印函数4.3.1 打印func Print(a …inte
         </a>
       </p>
 
@@ -626,141 +779,6 @@ https://blog.golang.org/go1.16
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2021-02-11 21:21" pubdate>
-              2021-02-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/coding/">coding</a>
-            
-              <a href="/categories/coding/golang/">golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/golang/">golang</a>
-            
-              <a href="/tags/beginners/">beginners</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A83-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210211140605581.png" srcset="/img/loading.gif" alt="golang 小白入门3:数据类型">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A83-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">golang 小白入门3:数据类型</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A83-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-          
-          
-            
-          
-          golang 小白入门3:数据类型基本数据类型以下是go中可用的基本数据类型
-
-3.1 布尔型bool布尔型的值只可以是常量 true 或者 false。一个简单的例子：var b bool = true
-3.2 数值型3.2.1 整数型
-int8
-  有符号 8 位整型 (-128 到 127)
-长度：8bit
-
-int16
-有符号 16 位整型 (-32768 到 32767)
-
-int32
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-11 14:04" pubdate>
-              2021-02-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/coding/">coding</a>
-            
-              <a href="/categories/coding/golang/">golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/golang/">golang</a>
-            
-              <a href="/tags/beginners/">beginners</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A82-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210211131859686.png" srcset="/img/loading.gif" alt="golang 小白入门2:基本语法">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A82-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">golang 小白入门2:基本语法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A82-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
-          
-          
-            
-          
-          golang 小白入门2:基本语法本帖大部分内容摘抄自
-https://github.com/rubyhan1314/Golang-100-Days
-麻烦给人家点个starヽ(✿ﾟ▽ﾟ)ノ
-2.1 变量变量是为存储特定类型的值而提供给内存位置的名称。在go中声明变量有多种语法。
-所以变量的本质就是一小块内存，用于存储数据，在程序运行过程中数值可以改变
-var名称类型是声明单个变量的语法。
-
-以字母
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-11 13:16" pubdate>
               2021-02-11
             </time>
           </div>
