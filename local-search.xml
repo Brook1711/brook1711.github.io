@@ -4,6 +4,99 @@
   
   
   <entry>
+    <title>2021 主题班会</title>
+    <link href="/2021/03/19/2021-%E4%B8%BB%E9%A2%98%E7%8F%AD%E4%BC%9A/"/>
+    <url>/2021/03/19/2021-%E4%B8%BB%E9%A2%98%E7%8F%AD%E4%BC%9A/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/1920px-China_Youth_League_logo.svg.png" alt="China Youth League logo.svg"></p><h1 id="2017211119团支部线上主题团日活动：“学习贯彻党代会，继往开来谱新篇”"><a href="#2017211119团支部线上主题团日活动：“学习贯彻党代会，继往开来谱新篇”" class="headerlink" title="2017211119团支部线上主题团日活动：“学习贯彻党代会，继往开来谱新篇”"></a>2017211119团支部线上主题团日活动：“学习贯彻党代会，继往开来谱新篇”</h1><p>2020年12月30日至31日，中国共产党北京邮电大学第十五次代表大会顺利召开。为深入学习宣传贯彻我校第十五次党代会精神，把广大青年团员的思想和行动统一到党代会精神上来，把智慧和力量凝聚到完成党代会确定的各项目标任务上来，以优异的成绩迎接建党100周年。经校团委研究决定，拟在全校团员青年中开展“学习贯彻党代会，继往开来谱新篇”主题团日活动<img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/61616152583_.pic.jpg" alt="61616152583_.pic"><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/101616152614_.pic_hd.jpg" alt="101616152614_.pic_hd"></p><p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/111616152614_.pic_hd.jpg" alt="111616152614_.pic_hd"></p><p>参会人员基本到齐，活动效果良好。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>life</category>
+      
+      <category>meeting</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>class</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Sum-Rate Maximization for IRS-Assisted UAV OFDMA Communication Systems</title>
+    <link href="/2021/03/18/Sum-Rate-Maximization-for-IRS-Assisted-UAV-OFDMA-Communication-Systems/"/>
+    <url>/2021/03/18/Sum-Rate-Maximization-for-IRS-Assisted-UAV-OFDMA-Communication-Systems/</url>
+    
+    <content type="html"><![CDATA[<h1 id="RIS-UAV-1-Sum-Rate-Maximization-for-IRS-Assisted-UAV-OFDMA-Communication-Systems"><a href="#RIS-UAV-1-Sum-Rate-Maximization-for-IRS-Assisted-UAV-OFDMA-Communication-Systems" class="headerlink" title="[RIS UAV-1] Sum-Rate Maximization for IRS-Assisted UAV OFDMA Communication Systems"></a>[RIS UAV-1] Sum-Rate Maximization for IRS-Assisted UAV OFDMA Communication Systems</h1><table><thead><tr><th>标题</th><th>Sum-Rate Maximization for IRS-Assisted UAV OFDMA Communication Systems</th></tr></thead><tbody><tr><td>作者</td><td>Zhiqiang Wei, Yuanxin Cai, Zhuo Sun, Derrick Wing Kwan Ng, Jinhong Yuan, Mingyu Zhou, and Lixin Sun</td></tr><tr><td>期刊</td><td>Transactions on Wireless Communications</td></tr><tr><td>时间</td><td>2020 Dec</td></tr><tr><td>亮点</td><td></td></tr><tr><td>未考虑</td><td></td></tr></tbody></table><p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210318152711429.png" alt="image-20210318152711429"></p><p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210318152815754.png" alt="image-20210318152815754"></p><p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210318152749412.png" alt="image-20210318152749412"></p><p>来源：<a href="https://www.aminer.cn/search/pub?k=Sum-Rate%20Maximization%20for%20IRS-Assisted%20UAV%20OFDMA%20Communic&amp;q=Sum-Rate%20Maximization%20for%20IRS-Assisted%20UAV%20OFDMA%20Communic&amp;t=b">https://www.aminer.cn/search/pub?k=Sum-Rate%20Maximization%20for%20IRS-Assisted%20UAV%20OFDMA%20Communic&amp;q=Sum-Rate%20Maximization%20for%20IRS-Assisted%20UAV%20OFDMA%20Communic&amp;t=b</a></p><h2 id="动机："><a href="#动机：" class="headerlink" title="动机："></a>动机：</h2><h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><hr><h3 id="Abstract："><a href="#Abstract：" class="headerlink" title="Abstract："></a>Abstract：</h3><p>在OFDMA（正交多址接入）的UAV系统中应用IRS</p><p><strong>利用了：</strong></p><ol><li><p>IRS带来的波束增益</p></li><li><p>UAV的高移动性</p></li></ol><p><strong>控制优化变量：</strong></p><ol><li>UAV trajectory</li><li>IRS scheduling</li><li>communication resource allocation</li></ol><p><strong>优化目的：</strong></p><p>​    在满足多样化的QoS条件的情况下最大化系统和速率</p><p>RIS的出现在UAV到用户的组合信道中引入了频率和空间选择性。</p><p><strong>使用了：</strong></p><p>​    交替优化（alternating optimization，AO）</p><hr><h2 id="贡献："><a href="#贡献：" class="headerlink" title="贡献："></a>贡献：</h2><h2 id="词汇："><a href="#词汇：" class="headerlink" title="词汇："></a>词汇：</h2><p>heterogeneous 各种各样的</p><p>derive the expression of 首先写出表达式</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>paper</category>
+      
+      <category>read</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>paper</tag>
+      
+      <tag>IEEE</tag>
+      
+      <tag>IRS</tag>
+      
+      <tag>RIS</tag>
+      
+      <tag>UAV</tag>
+      
+      <tag>OFDMA</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>基于donkey car的RC小玩具</title>
+    <link href="/2021/03/04/%E5%9F%BA%E4%BA%8Edonkey-car%E7%9A%84RC%E5%B0%8F%E7%8E%A9%E5%85%B7/"/>
+    <url>/2021/03/04/%E5%9F%BA%E4%BA%8Edonkey-car%E7%9A%84RC%E5%B0%8F%E7%8E%A9%E5%85%B7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="基于donkey-car的RC小玩具"><a href="#基于donkey-car的RC小玩具" class="headerlink" title="基于donkey car的RC小玩具"></a>基于donkey car的RC小玩具</h1><p>由raspberry pi zero w 运行python脚本，基于web端远程控制的RC玩具</p><p>donkeycar<a href="http://docs.donkeycar.com/">官网</a></p><h2 id="1、树莓派准备"><a href="#1、树莓派准备" class="headerlink" title="1、树莓派准备"></a>1、树莓派准备</h2><p>根据官网<a href="http://docs.donkeycar.com/guide/robot_sbc/setup_raspberry_pi/">指引</a></p><p>首先开启摄像头：</p><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo raspi-<span class="hljs-built_in">config</span><br></code></pre></td></tr></table></figure><p>进入系统设置后</p><p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210304202512847.png" alt="image-20210304202512847"></p><p>选择启用以下功能</p><ul><li>enable <code>Interfacing Options</code> - <code>I2C</code></li><li>enable <code>Interfacing Options</code> - <code>Camera</code></li></ul><p>选择重启树莓派：</p><p>安装依赖：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-get install build-essential python<span class="hljs-number">3</span> python<span class="hljs-number">3</span>-dev python<span class="hljs-number">3</span>-pip python<span class="hljs-number">3</span>-virtualenv python<span class="hljs-number">3</span>-numpy python<span class="hljs-number">3</span>-picamera python<span class="hljs-number">3</span>-pandas python<span class="hljs-number">3</span>-rpi.gpio i<span class="hljs-number">2</span>c-tools avahi-utils joystick libopenjp<span class="hljs-number">2</span>-<span class="hljs-number">7</span>-dev libtiff<span class="hljs-number">5</span>-dev gfortran libatlas-base-dev libopenblas-dev libhdf<span class="hljs-number">5</span>-serial-dev git ntp<br></code></pre></td></tr></table></figure><p>这一步比较耗时，建议换源。</p><p>选择性，注意，不推荐安装（opencv）</p><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install libilmbase-<span class="hljs-built_in">dev</span> libopenexr-<span class="hljs-built_in">dev</span> libgstreamer1<span class="hljs-number">.0</span>-<span class="hljs-built_in">dev</span> libjasper-<span class="hljs-built_in">dev</span> libwebp-<span class="hljs-built_in">dev</span> libatlas-base-<span class="hljs-built_in">dev</span> libavcodec-<span class="hljs-built_in">dev</span> libavformat-<span class="hljs-built_in">dev</span> libswscale-<span class="hljs-built_in">dev</span> libqtgui4 libqt4-test<br><br></code></pre></td></tr></table></figure><p>接下来官网推荐建立python虚拟环境</p><blockquote><p>Step 10: Setup Virtual Env</p><p>This needs to be done only once:</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 -m virtualenv -p python3 env --system-site-packages<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;source env/bin/activate&quot;</span> &gt;&gt; ~/.bashrc<br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure><blockquote><p>Modifying your <code>.bashrc</code> in this way will automatically enable this </p></blockquote><p>这里直接在默认环境下运行。</p><p>新建<code>demo</code>文件夹，在该文件夹下从donkey car项目地址拉取项目代码：</p><ul><li>Create and change to a directory you would like to use as the head of your projects.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir demo<br><span class="hljs-built_in">cd</span> demo<br></code></pre></td></tr></table></figure><ul><li>Get the latest donkeycar from Github.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/autorope/donkeycar<br><span class="hljs-built_in">cd</span> donkeycar<br>git checkout master<br>pip install -e .[pi]<br>pip install numpy --upgrade<br>wget <span class="hljs-string">&quot;https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh&quot;</span><br>chmod u+x tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh<br>tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh<br>pip install tensorflow-2.3.1-cp37-none-linux_armv7l.whl<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>playing</category>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>donkey car</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>pi-zero学习4: pi dashboard</title>
     <link href="/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A04-pi-dashboard/"/>
     <url>/2021/02/27/pi-zero%E5%AD%A6%E4%B9%A04-pi-dashboard/</url>
@@ -406,11 +499,11 @@
     
     <tags>
       
-      <tag>TexStudio</tag>
-      
       <tag>paper</tag>
       
       <tag>IEEE</tag>
+      
+      <tag>TexStudio</tag>
       
     </tags>
     
@@ -437,11 +530,11 @@
     
     <tags>
       
-      <tag>TexStudio</tag>
-      
       <tag>paper</tag>
       
       <tag>IEEE</tag>
+      
+      <tag>TexStudio</tag>
       
     </tags>
     
