@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      9 字
+      115 字
     </span>
   
 
@@ -227,7 +227,15 @@
             <h1 style="display: none">TexStudio 论文排版细节</h1>
             
             <div class="markdown-body">
-              <h1 id="TexStudio论文排版细节"><a href="#TexStudio论文排版细节" class="headerlink" title="TexStudio论文排版细节"></a>TexStudio论文排版细节</h1><h1 id="test-1-07"><a href="#test-1-07" class="headerlink" title="test 1 07"></a>test 1 07</h1>
+              <h1 id="TexStudio论文排版细节"><a href="#TexStudio论文排版细节" class="headerlink" title="TexStudio论文排版细节"></a>TexStudio论文排版细节</h1><h1 id="Figure"><a href="#Figure" class="headerlink" title="Figure"></a>Figure</h1><p>1、自定义图片标签</p>
+<p>效果图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210420224020819.png" srcset="/img/loading.gif" alt="image-20210420224020819"></p>
+<p>使用命令：</p>
+<p>注意，需要在最前面的 <code>\begin&#123;document&#125;</code>之前加入以下代码：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\newcommand</span>&#123;<span class="hljs-keyword">\figuretag</span>&#125;[1]&#123;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\addtocounter</span>&#123;figure&#125;&#123;-1&#125;<span class="hljs-comment">%</span><br>  <span class="hljs-keyword">\renewcommand</span>&#123;<span class="hljs-keyword">\thefigure</span>&#125;&#123;<span class="hljs-params">#1</span>&#125;<span class="hljs-comment">%</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在插图时使用：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\begin</span>&#123;figure&#125;[ht]<br><br>	<span class="hljs-keyword">\centering</span><br>	<span class="hljs-keyword">\includegraphics</span>[scale=0.5]&#123;./Images/Bessel.png&#125;<br>	<span class="hljs-keyword">\figuretag</span>&#123;1.6-1&#125;<span class="hljs-keyword">\caption</span>&#123;The correlation between outdated and real-time CSI verse relative speed.&#125;<br>	<span class="hljs-keyword">\label</span>&#123;fig:trajactory&#125;<br>	<span class="hljs-keyword">\end</span>&#123;figure&#125;<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
