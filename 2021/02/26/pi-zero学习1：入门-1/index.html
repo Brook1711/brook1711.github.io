@@ -264,32 +264,52 @@
 <p>在进行配置之前需要开启root登陆</p>
 <p>首先设置密码</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo passwd root</span><br></code></pre></td></tr></table></figure>
+
 <p>启用 root 账号</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo passwd <span class="hljs-comment">--unlock root </span><br></code></pre></td></tr></table></figure>
+
 <p>启用 root 账号登录</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>ssh/sshd_config<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#PermitRootLogin prohibit-password</span><br>PermitRootLogin yes<br></code></pre></td></tr></table></figure>
+
 <p>Ctrl + W 快捷键<br>搜索 PermitRootLogin prohibit-password<br>改为PermitRootLogin yes 并删掉#号<br>或者直接新建一行。</p>
 <p>Ctrl + O 快捷键 保存</p>
 <p>Ctrl + X 快捷键 退出 Nano 编辑器</p>
 <p>这里使用usb连接ssh，编辑<code>/etc/network/interfaces</code>，添加以下内容：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">allow</span></span>-hotplug usb<span class="hljs-number">0</span><br><span class="hljs-attribute">iface</span> usb<span class="hljs-number">0</span> inet static<br>    <span class="hljs-attribute">address</span> <span class="hljs-number">192.168.2.2</span><br>    <span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br>    <span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.2.1</span><br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="5、换源"><a href="#5、换源" class="headerlink" title="5、换源"></a>5、换源</h2><p>1、首先编辑 /etc/apt/sources.list 文件，没装vim之前，推荐用 nano 命令编辑。在修改之前先把源列表备份，然后再修改sources.list。命令如下：[mw_shl_code=bash,true]cp /etc/apt/sources.list /etc/apt/sources.list.bak  #备份为 sources.list.bak<br>nano /etc/apt/sources.list    #编辑sources.list 文件[/mw_shl_code]<br>进入编辑界面，删除原有的内容或者用#注释掉原来的源，添加下方的源：<br>[mw_shl_code=bash,true]#deb <a target="_blank" rel="noopener" href="http://mirrordirector.raspbian.org/raspbian/">http://mirrordirector.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br># Uncomment line below then ‘apt-get update’ to enable ‘apt-get source’<br>#deb-src <a target="_blank" rel="noopener" href="http://archive.raspbian.org/raspbian/">http://archive.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br>deb <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi<br>deb-src <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi[/mw_shl_code]<br>或其他源<br>[mw_shl_code=bash,true]#大连东软信息学院(北方用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#中国科学技术大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#清华大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#重庆大学(中西部用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi[/mw_shl_code]<br>注意：镜像区别jessie或wheezy版本，软件源也对应一样。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">deb http:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/raspbian/</span>raspbian/ buster main contrib non-free rpi<br>deb-src http:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/raspbian/</span>raspbian/ buster main contrib non-free rpi<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>apt<span class="hljs-regexp">/sources.list.d/</span>raspi.list<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">deb http:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archive.raspberrypi.org/</span>debian/ stretch main ui<br><span class="hljs-comment"># Uncomment line below then &#x27;apt-get update&#x27; to enable &#x27;apt-get source&#x27;</span><br><span class="hljs-comment">#deb-src http://archive.raspberrypi.org/debian/ stretch main ui</span><br><br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="6、备份"><a href="#6、备份" class="headerlink" title="6、备份"></a>6、备份</h2><p>查询</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查询盘符</span><br>diskutil list <br><span class="hljs-comment"># 下面图片中的dev/disk2既对应的树莓派的TF卡</span><br></code></pre></td></tr></table></figure>
+
 <p>dd命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#使用dd进行备份，同时使用gzip将备份文件进行压缩</span><br>sudo dd <span class="hljs-keyword">if</span>=/dev/disk4 bs=1m | gzip &gt; ~/demo/pi_zero/back_wlan.gz<br><span class="hljs-comment">#将“/dev/rdiskx ”改成您 Micro SD 卡的所在位置， if 參數是指定資料來源 (也就是 Micro #SD 卡)   of 則是指定備份影像檔的儲存路徑與檔案名稱 </span><br></code></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo diskutil unmount /dev/disk4s1<br><br>gzip -dc ./backupImage-pi-dashboard.gz | sudo dd of=/dev/disk4 bs=1m<br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="7、pip安装"><a href="#7、pip安装" class="headerlink" title="7、pip安装"></a>7、pip安装</h2><p>1.首先安装setuptools</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install -y python-pip  <br>sudo apt-<span class="hljs-builtin-name">get</span> install -y python3-pip  <br></code></pre></td></tr></table></figure>
+
 <p>2.换源</p>
 <p>~/.pip/pip.conf</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">[<span class="hljs-keyword">global</span>]<br><span class="hljs-built_in">index</span>-url = http<span class="hljs-variable">s:</span>//pypi.tuna.tsinghua.edu.<span class="hljs-keyword">cn</span>/simple<br></code></pre></td></tr></table></figure>
+
 <h2 id="8、配置远程桌面"><a href="#8、配置远程桌面" class="headerlink" title="8、配置远程桌面"></a>8、配置远程桌面</h2><p>在终端输入以下命令进入配置界面。</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo raspi-<span class="hljs-built_in">config</span><br></code></pre></td></tr></table></figure>
+
 <p>依次操作：Interfacing Options -&gt; VNC -&gt; Yes。之后系统会提示你是否要安装 VNC 服务，输入 y 之后回车，等待系统自动下载安装完成，一切顺利的话 VNC 服务就启动了！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227180642490.png" srcset="/img/loading.gif" alt="image-20210227180642490"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227180727613.png" srcset="/img/loading.gif" alt="image-20210227180727613"></p>
@@ -297,16 +317,20 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227201453435.png" srcset="/img/loading.gif" alt="image-20210227201453435"></p>
 <p>输入</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">vncserver</span><br></code></pre></td></tr></table></figure>
+
 <p>下载vnc viewer</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227201422979.png" srcset="/img/loading.gif" alt="image-20210227201422979"></p>
 <p>框内输入树莓派ip地址即可连接</p>
 <h2 id="9、ip固定"><a href="#9、ip固定" class="headerlink" title="9、ip固定"></a>9、ip固定</h2><p>若不进行ip固定，则很有可能电脑将其判定为MITM攻击，编辑电脑~/.ssh/known_hosts文件，删除重复host</p>
 <p>在树莓派上：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>network/interfaces<br></code></pre></td></tr></table></figure>
+
 <p>在最后一行加入：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">allow</span></span>-hotplug usb<span class="hljs-number">0</span><br><span class="hljs-attribute">iface</span> usb<span class="hljs-number">0</span> inet static<br>    <span class="hljs-attribute">address</span> <span class="hljs-number">192.168.2.2</span><br>    <span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br>    <span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.2.1</span><br></code></pre></td></tr></table></figure>
+
 <p>在<code>/etc/resolvconf.conf</code>中编辑：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">nameservers</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">2.1</span><br></code></pre></td></tr></table></figure>
+
 <p>configure the RNDIS/Ethernet Gadget interface with the following parameters: - Configure IPV4: <code>Manually</code> - IP Address: <code>192.168.2.1</code> - Subnet Mask: <code>255.255.255.0</code> - Router: (none) - Under Advanced -&gt; DNS, add your favorite DNS server, like <code>8.8.8.8</code> or your home router.</p>
 
             </div>

@@ -232,6 +232,7 @@
 <h2 id="1、树莓派准备"><a href="#1、树莓派准备" class="headerlink" title="1、树莓派准备"></a>1、树莓派准备</h2><p>根据官网<a target="_blank" rel="noopener" href="http://docs.donkeycar.com/guide/robot_sbc/setup_raspberry_pi/">指引</a></p>
 <p>首先开启摄像头：</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo raspi-<span class="hljs-built_in">config</span><br></code></pre></td></tr></table></figure>
+
 <p>进入系统设置后</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210304202512847.png" srcset="/img/loading.gif" alt="image-20210304202512847"></p>
 <p>选择启用以下功能</p>
@@ -242,15 +243,18 @@
 <p>选择重启树莓派：</p>
 <p>安装依赖：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-get install build-essential python<span class="hljs-number">3</span> python<span class="hljs-number">3</span>-dev python<span class="hljs-number">3</span>-pip python<span class="hljs-number">3</span>-virtualenv python<span class="hljs-number">3</span>-numpy python<span class="hljs-number">3</span>-picamera python<span class="hljs-number">3</span>-pandas python<span class="hljs-number">3</span>-rpi.gpio i<span class="hljs-number">2</span>c-tools avahi-utils joystick libopenjp<span class="hljs-number">2</span>-<span class="hljs-number">7</span>-dev libtiff<span class="hljs-number">5</span>-dev gfortran libatlas-base-dev libopenblas-dev libhdf<span class="hljs-number">5</span>-serial-dev git ntp<br></code></pre></td></tr></table></figure>
+
 <p>这一步比较耗时，建议换源。</p>
 <p>选择性，注意，不推荐安装（opencv）</p>
 <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs q">sudo apt-<span class="hljs-built_in">get</span> install libilmbase-<span class="hljs-built_in">dev</span> libopenexr-<span class="hljs-built_in">dev</span> libgstreamer1<span class="hljs-number">.0</span>-<span class="hljs-built_in">dev</span> libjasper-<span class="hljs-built_in">dev</span> libwebp-<span class="hljs-built_in">dev</span> libatlas-base-<span class="hljs-built_in">dev</span> libavcodec-<span class="hljs-built_in">dev</span> libavformat-<span class="hljs-built_in">dev</span> libswscale-<span class="hljs-built_in">dev</span> libqtgui4 libqt4-test<br><br></code></pre></td></tr></table></figure>
+
 <p>接下来官网推荐建立python虚拟环境</p>
 <blockquote>
 <p>Step 10: Setup Virtual Env</p>
 <p>This needs to be done only once:</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 -m virtualenv -p python3 env --system-site-packages<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;source env/bin/activate&quot;</span> &gt;&gt; ~/.bashrc<br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+
 <blockquote>
 <p>Modifying your <code>.bashrc</code> in this way will automatically enable this </p>
 </blockquote>
@@ -260,10 +264,12 @@
 <li>Create and change to a directory you would like to use as the head of your projects.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdir demo<br><span class="hljs-built_in">cd</span> demo<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>Get the latest donkeycar from Github.</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/autorope/donkeycar<br><span class="hljs-built_in">cd</span> donkeycar<br>git checkout master<br>pip install -e .[pi]<br>pip install numpy --upgrade<br>wget <span class="hljs-string">&quot;https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh&quot;</span><br>chmod u+x tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh<br>tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh<br>pip install tensorflow-2.3.1-cp37-none-linux_armv7l.whl<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>

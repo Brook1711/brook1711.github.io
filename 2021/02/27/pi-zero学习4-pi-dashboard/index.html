@@ -231,51 +231,71 @@
 <p>项目地址：</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/spoonysonny/pi-dashboard">https://github.com/spoonysonny/pi-dashboard</a></p>
 <h2 id="1、安装lnmp"><a href="#1、安装lnmp" class="headerlink" title="1、安装lnmp"></a>1、安装lnmp</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span><br></code></pre></td></tr></table></figure>
+
 <p>安装Nginx，输入下面的命令</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install -y nginx<br></code></pre></td></tr></table></figure>
+
 <p>完全卸载：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs routeros">$ sudo apt-<span class="hljs-builtin-name">get</span> --purge <span class="hljs-builtin-name">remove</span> nginx<br>$ sudo apt-<span class="hljs-builtin-name">get</span> autoremove<br>$ dpkg --get-selections | grep nginx<br><br>$ sudo apt-<span class="hljs-builtin-name">get</span> --purge <span class="hljs-builtin-name">remove</span> nginx-common<br>$ sudo apt-<span class="hljs-builtin-name">get</span> install nginx<br></code></pre></td></tr></table></figure>
+
 <p>启动nginx服务</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo service nginx restart</span><br></code></pre></td></tr></table></figure>
+
 <p>安装PHP7.0，(删去版本号)</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-get install -y nginx php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-fpm php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-cli php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-curl php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-gd php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-mcrypt php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-cgi php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-mysql php<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-mbstring<br><br></code></pre></td></tr></table></figure>
+
 <blockquote>
 <p>The following additional packages will be installed:<br>libltdl7 libmcrypt4 libsodium23 php-common php7.1-common php7.3-cgi php7.3-cli php7.3-common php7.3-curl php7.3-fpm php7.3-gd php7.3-json<br>php7.3-mysql php7.3-opcache php7.3-readline</p>
 </blockquote>
 <p>安装完毕后启动php7.0服务</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> service php<span class="hljs-number">7</span>.<span class="hljs-number">3</span>-fpm restart<br></code></pre></td></tr></table></figure>
+
 <p>安装MySQL（MariaDb），输入下面的命令</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">sudo apt-get <span class="hljs-keyword">install</span> -y mysql-<span class="hljs-keyword">server</span> mysql-<span class="hljs-keyword">client</span> <br></code></pre></td></tr></table></figure>
+
 <blockquote>
 <p>Reading package lists… Done<br>Building dependency tree<br>Reading state information… Done<br>Package mysql-client is not available, but is referred to by another package.<br>This may mean that the package is missing, has been obsoleted, or<br>is only available from another source<br>However the following packages replace it:<br>mariadb-client-10.0</p>
+</blockquote>
+<blockquote>
 <p>Package mysql-server is not available, but is referred to by another package.<br>This may mean that the package is missing, has been obsoleted, or<br>is only available from another source<br>However the following packages replace it:<br>  mariadb-server-10.0</p>
 </blockquote>
 <p>更换安装命令：</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> apt-get install -y mariadb-client-<span class="hljs-number">10</span>.<span class="hljs-number">0</span> mariadb-server-<span class="hljs-number">10</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
 <p>安装完毕后启动mysql服务</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo service mysql restart</span><br></code></pre></td></tr></table></figure>
+
 <p>如果安装成功，可通过 http:// 树莓派IP 访问到 Nginx 的默认页。Nginx 的根目录在 /var/www/html。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227111607009.png" srcset="/img/loading.gif" alt="image-20210227111607009">到这里，就已经安装完毕了，下面就开始配置Nginx+PHP7+MySQL(MariaDB)了。</p>
 <p>配置见<a target="_blank" rel="noopener" href="https://blog.csdn.net/alinathz/article/details/92234300">https://blog.csdn.net/alinathz/article/details/92234300</a></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/spoonysonny/</span>pi-dashboard.git<br><br><br></code></pre></td></tr></table></figure>
+
 <p>进入目录</p>
 <p>接着配置nginx</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>cd <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/nginx/</span>conf/vhost<br>vim dashboard.conf<br></code></pre></td></tr></table></figure>
+
 <p>将其中的如下内容</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">location / &#123;<br>                <span class="hljs-comment"># First attempt to serve request as file, then</span><br>                <span class="hljs-comment"># as directory, then fall back to displaying a 404.</span><br>                try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ =<span class="hljs-number">404</span>;<br>        &#125;<br></code></pre></td></tr></table></figure>
+
 <p>替换为</p>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs glsl"><span class="hljs-keyword">location</span> / &#123;<br><span class="hljs-keyword">index</span>  <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">index</span>.htm <span class="hljs-keyword">index</span>.php <span class="hljs-keyword">default</span>.html <span class="hljs-keyword">default</span>.htm <span class="hljs-keyword">default</span>.php;<br>&#125;<br> <br><span class="hljs-keyword">location</span> ~\.php$ &#123;<br>fastcgi_pass unix:/run/php/php7<span class="hljs-number">.3</span>-fpm.sock;<br><span class="hljs-meta">#fastcgi_pass 127.0.0.1:9000;</span><br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>Ctrl + O 保存再 Ctrl + X 退出。</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo service nginx restart</span><br></code></pre></td></tr></table></figure>
+
 <p>执行 <code>mysql</code> 命令。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">MariaDB [(none)]&gt; use mysql;<br>MariaDB [mysql]&gt; update user <span class="hljs-built_in">set</span> plugin=<span class="hljs-string">&#x27;mysql_native_password&#x27;</span> <span class="hljs-built_in">where</span> user=<span class="hljs-string">&#x27;root&#x27;</span>;<br>MariaDB [mysql]&gt; UPDATE user SET password=PASSWORD(<span class="hljs-string">&#x27;你想要设定的密码&#x27;</span>) WHERE user=<span class="hljs-string">&#x27;root&#x27;</span>;<br>MariaDB [mysql]&gt; flush privileges;<br>MariaDB [mysql]&gt; <span class="hljs-built_in">exit</span>;<br></code></pre></td></tr></table></figure>
+
 <p>重启服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">service mysql restart<br></code></pre></td></tr></table></figure>
+
 <p>部署pi dashboard：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /var/www/html<br>sudo git <span class="hljs-built_in">clone</span> https://github.com/nxez/pi-dashboard.git<br></code></pre></td></tr></table></figure>
+
 <p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227125420430.png" srcset="/img/loading.gif" alt="image-20210227125420430"></p>
 <p>树莓派ip可以通过</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping raspberrypi.local<br></code></pre></td></tr></table></figure>
+
 <p>得知</p>
 
             </div>
