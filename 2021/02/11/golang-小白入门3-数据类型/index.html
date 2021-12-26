@@ -1,0 +1,912 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="又是元气满满的一天呢">
+  <meta name="author" content="Brook1711">
+  <meta name="keywords" content="">
+  <title>golang 小白入门3:数据类型 - Brook1711</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-185713601-1","gtag":"G-YREZJ0498S","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Brook1711's page</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/golang-hacker (1).jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="golang 小白入门3:数据类型">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-11 14:04" pubdate>
+        2021年2月11日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">golang 小白入门3:数据类型</h1>
+            
+            <div class="markdown-body">
+              <h1 id="golang-小白入门3-数据类型"><a href="#golang-小白入门3-数据类型" class="headerlink" title="golang 小白入门3:数据类型"></a>golang 小白入门3:数据类型</h1><h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><p>以下是go中可用的基本数据类型</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210211140823095.png" srcset="/img/loading.gif" alt="image-20210211140823095"></p>
+<h2 id="3-1-布尔型bool"><a href="#3-1-布尔型bool" class="headerlink" title="3.1 布尔型bool"></a>3.1 布尔型bool</h2><p>布尔型的值只可以是常量 true 或者 false。一个简单的例子：var b bool = true</p>
+<h2 id="3-2-数值型"><a href="#3-2-数值型" class="headerlink" title="3.2 数值型"></a>3.2 数值型</h2><h3 id="3-2-1-整数型"><a href="#3-2-1-整数型" class="headerlink" title="3.2.1 整数型"></a>3.2.1 整数型</h3><ul>
+<li><p>int8</p>
+<p>  有符号 8 位整型 (-128 到 127)</p>
+<p>长度：8bit</p>
+</li>
+<li><p>int16</p>
+<p>有符号 16 位整型 (-32768 到 32767)</p>
+</li>
+<li><p>int32</p>
+<p>有符号 32 位整型 (-2147483648 到 2147483647)</p>
+</li>
+<li><p>int64</p>
+<p>有符号 64 位整型 (-9223372036854775808 到 9223372036854775807)</p>
+</li>
+<li><p>uint8</p>
+<p>无符号 8 位整型 (0 到 255)</p>
+</li>
+</ul>
+<p>8位都用于表示数值：</p>
+<ul>
+<li><p>uint16</p>
+<p>无符号 16 位整型 (0 到 65535)</p>
+</li>
+<li><p>uint32</p>
+<p>无符号 32 位整型 (0 到 4294967295)</p>
+</li>
+<li><p>uint64</p>
+<p>无符号 64 位整型 (0 到 18446744073709551615)</p>
+</li>
+</ul>
+<blockquote>
+<p>int和uint:根据底层平台，表示32或64位整数。除非需要使用特定大小的整数，否则通常应该使用int来表示整数。</p>
+<p>大小:32位系统32位，64位系统64位。</p>
+<p>范围:-2147483648到2147483647的32位系统和-9223372036854775808到9223372036854775807的64位系统。</p>
+</blockquote>
+<h3 id="3-2-2-浮点型"><a href="#3-2-2-浮点型" class="headerlink" title="3.2.2 浮点型"></a>3.2.2 浮点型</h3><ul>
+<li><p>float32</p>
+<p>IEEE-754 32位浮点型数</p>
+</li>
+<li><p>float64</p>
+<p>IEEE-754 64位浮点型数</p>
+</li>
+<li><p>complex64</p>
+<p>32 位实数和虚数</p>
+</li>
+<li><p>complex128</p>
+<p>64 位实数和虚数</p>
+</li>
+</ul>
+<h3 id="3-2-3-其他"><a href="#3-2-3-其他" class="headerlink" title="3.2.3 其他"></a>3.2.3 其他</h3><ul>
+<li><p>byte</p>
+<p>类似 uint8</p>
+</li>
+<li><p>rune</p>
+<p>类似 int32</p>
+</li>
+<li><p>uint</p>
+<p>32 或 64 位</p>
+</li>
+<li><p>int</p>
+<p>与 uint 一样大小</p>
+</li>
+<li><p>uintptr</p>
+<p>无符号整型，用于存放一个指针</p>
+</li>
+</ul>
+<h2 id="3-3-字符串型"><a href="#3-3-字符串型" class="headerlink" title="3.3 字符串型"></a>3.3 字符串型</h2><p>字符串就是一串固定长度的字符连接起来的字符序列。Go的字符串是由单个字节连接起来的。Go语言的字符串的字节使用UTF-8编码标识Unicode文本</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> str <span class="hljs-keyword">string</span><br>str = <span class="hljs-string">&quot;Hello World&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="3-4-数据类型转换"><a href="#3-4-数据类型转换" class="headerlink" title="3.4 数据类型转换"></a>3.4 数据类型转换</h2><p>语法格式：Type(Value)</p>
+<p>常数：在有需要的时候，会自动转型</p>
+<p>变量：需要手动转型 T(V)</p>
+<p>注意点：兼容类型可以转换</p>
+<h1 id="复合类型（派生类型）"><a href="#复合类型（派生类型）" class="headerlink" title="复合类型（派生类型）"></a>复合类型（派生类型）</h1><p>1、指针类型（Pointer）</p>
+<p>2、数组类型</p>
+<p>3、结构化类型(struct)</p>
+<p>4、Channel 类型</p>
+<p>5、函数类型</p>
+<p>6、切片类型</p>
+<p>7、接口类型（interface）</p>
+<p>8、Map 类型</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>表达式：(a + b) * c</p>
+<p>  a,b,c叫做操作数</p>
+<p>  +，*，叫做运算符</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">\+ - * / %(求余) ++ --<br></code></pre></td></tr></table></figure>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">== != &gt; &lt; &gt;= &lt;=<br></code></pre></td></tr></table></figure>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>所谓逻辑与运算符。如果两个操作数都非零，则条件变为真</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td></td>
+<td>所谓的逻辑或操作。如果任何两个操作数是非零，则条件变为真</td>
+</tr>
+<tr>
+<td>!</td>
+<td>所谓逻辑非运算符。使用反转操作数的逻辑状态。如果条件为真，那么逻辑非操后结果为假</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A&amp;B</th>
+<th>A\</th>
+<th>B</th>
+<th>A^B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这里最难理解的就是^了，只要认为AB两者都相同的时候，为0，其他都为1</p>
+<p>假设A为60，B为13</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>二进制与操作副本位的结果，如果它存在于两个操作数</td>
+<td>(A &amp; B) = 12, 也就是 0000 1100</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>二进制或操作副本，如果它存在一个操作数</td>
+<td>(A \</td>
+<td>B) = 61, 也就是 0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>二进制异或操作副本，如果它被设置在一个操作数就是按位取非</td>
+<td>(A ^ B) = 49, 也就是 0011 0001</td>
+</tr>
+<tr>
+<td>&amp;^</td>
+<td>二进制位清空&amp;^</td>
+<td>(A&amp;^B)=48，也就是110000</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>二进制左移位运算符。左边的操作数的值向左移动由右操作数指定的位数</td>
+<td>A &lt;&lt; 2 =240 也就是 1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>二进制向右移位运算符。左边的操作数的值由右操作数指定的位数向右移动</td>
+<td>A &gt;&gt; 2 = 15 也就是 0000 1111</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>简单的赋值操作符，分配值从右边的操作数左侧的操作数</td>
+<td>C = A + B 将分配A + B的值到C</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>相加并赋值运算符，它增加了右操作数左操作数和分配结果左操作数</td>
+<td>C += A 相当于 C = C + A</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减和赋值运算符，它减去右操作数从左侧的操作数和分配结果左操作数</td>
+<td>C -= A 相当于 C = C - A</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘法和赋值运算符，它乘以右边的操作数与左操作数和分配结果左操作数</td>
+<td>C <em>= A 相当于 C = C </em> A</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除法赋值运算符，它把左操作数与右操作数和分配结果左操作数</td>
+<td>C /= A 相当于 C = C / A</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>模量和赋值运算符，它需要使用两个操作数的模量和分配结果左操作数</td>
+<td>C %= A 相当于 C = C % A</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>左移位并赋值运算符</td>
+<td>C &lt;&lt;= 2 相同于 C = C &lt;&lt; 2</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>向右移位并赋值运算符</td>
+<td>C &gt;&gt;= 2 相同于 C = C &gt;&gt; 2</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>按位与赋值运算符</td>
+<td>C &amp;= 2 相同于 C = C &amp; 2</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>按位异或并赋值运算符</td>
+<td>C ^= 2 相同于 C = C ^ 2</td>
+</tr>
+<tr>
+<td>\</td>
+<td>=</td>
+<td>按位或并赋值运算符</td>
+<td>C \</td>
+<td>= 2 相同于 C = C \</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="优先级运算符优先级"><a href="#优先级运算符优先级" class="headerlink" title="优先级运算符优先级"></a><strong>优先级运算符优先级</strong></h2><p>有些运算符拥有较高的优先级，二元运算符的运算方向均是从左至右。下表列出了所有运算符以及它们的优先级，由上至下代表优先级由高到低：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>~ ! ++ —</td>
+</tr>
+<tr>
+<td>6</td>
+<td>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</td>
+</tr>
+<tr>
+<td>5</td>
+<td>+ -  ^</td>
+</tr>
+<tr>
+<td>4</td>
+<td>== != &lt; &lt;= &gt;= &gt;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&lt;-</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>当然，你可以通过使用括号来临时提升某个表达式的整体运算优先级。</p>
+<blockquote>
+<p>千锋Go语言的学习群：784190273</p>
+<p>作者B站：</p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/353694001">https://space.bilibili.com/353694001</a></p>
+<p>对应视频地址：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av56018934">https://www.bilibili.com/video/av56018934</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av47467197">https://www.bilibili.com/video/av47467197</a></p>
+<p>源代码：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rubyhan1314/go_foundation">https://github.com/rubyhan1314/go_foundation</a></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/coding/">coding</a>
+                    
+                      <a class="hover-with-bg" href="/categories/coding/golang/">golang</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/golang/">golang</a>
+                    
+                      <a class="hover-with-bg" href="/tags/beginners/">beginners</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/11/golang%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A84-%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">golang小白入门4 键盘输入输出</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/11/golang-%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A82-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+                        <span class="hidden-mobile">golang 小白入门2:基本语法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e0419fedd5e556b604c8',
+          clientSecret: '6abe437de2748027487d5081923a7dc4b0ebdf98',
+          repo: 'brook1711.github.io',
+          owner: 'Brook1711',
+          admin: ["Brook1711"],
+          id: '76073fa0c3b26ac45ebec08d6b0e8d2a',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-185713601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YREZJ0498S"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YREZJ0498S');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":250,"height":250},"mobile":{"show":true,"scale":0.7},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>

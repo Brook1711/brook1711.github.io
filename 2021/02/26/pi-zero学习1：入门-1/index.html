@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="又是元气满满的一天呢">
+  <meta name="author" content="Brook1711">
+  <meta name="keywords" content="">
+  <title>pi zero学习1：入门 - Brook1711</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-185713601-1","gtag":"G-YREZJ0498S","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Brook1711's page</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226100613016.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="pi zero学习1：入门">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-26 10:04" pubdate>
+        2021年2月26日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">pi zero学习1：入门</h1>
+            
+            <div class="markdown-body">
+              <h1 id="pi-zero学习1：入门"><a href="#pi-zero学习1：入门" class="headerlink" title="pi zero学习1：入门"></a>pi zero学习1：入门</h1><p>官网教程地址：</p>
+<p><a target="_blank" rel="noopener" href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up">https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up</a></p>
+<h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p><img src="https://projects-static.raspberrypi.org/projects/raspberry-pi-setting-up/05f98c4cac11e7fc2ead84db91ff9f49dc23176c/en/images/pi-plug-in.gif" srcset="/img/loading.gif" alt="plug in the pi"></p>
+<p>这里的教程是针对树莓派4的板子，但是应该是与pi zero兼容。</p>
+<p>具体参数如下</p>
+<p><strong>Technical Specifications</strong></p>
+<p>The Raspberry Pi Zero W extends the Pi Zero family. Launched at the end of February 2017, the Pi Zero W has all the functionality of the original Pi Zero, but comes with added connectivity, consisting of:</p>
+<ul>
+<li>802.11 b/g/n wireless LAN</li>
+<li>Bluetooth 4.1</li>
+<li>Bluetooth Low Energy (BLE)</li>
+</ul>
+<p>Like the Pi Zero, it also has:</p>
+<ul>
+<li>1GHz, single-core CPU</li>
+<li>512MB RAM</li>
+<li>Mini HDMI and USB On-The-Go ports</li>
+<li>Micro USB power</li>
+<li>HAT-compatible 40-pin header</li>
+<li>Composite video and reset headers</li>
+<li>CSI camera connector</li>
+</ul>
+<h2 id="2、使用SD卡启动"><a href="#2、使用SD卡启动" class="headerlink" title="2、使用SD卡启动"></a>2、使用SD卡启动</h2><h3 id="Raspberry-Pi-Imager"><a href="#Raspberry-Pi-Imager" class="headerlink" title="Raspberry Pi Imager"></a>Raspberry Pi Imager</h3><p>树莓派团队开发了一款可以下载并自动安装景象到sd卡的软件，该软件可以在win、mac、linux平台上运行，其下载地位：</p>
+<p><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a></p>
+<p>选择适合自己的操作系统</p>
+<p><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/">https://www.raspberrypi.org/software/operating-systems/</a></p>
+<p>这里我选择的是Raspberry Pi OS Lite，就是不带桌面而且不带推荐软件，是最小系统。</p>
+<p>打开刚才准备的Raspberry Pi Imager：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210226103914138.png" srcset="/img/loading.gif" alt="image-20210226103914138"></p>
+<p>选择要烧录的镜像（就是刚刚下载的Raspberry Pi OS Lite）选择要烧录的sd卡，点击write按钮。</p>
+<h2 id="3、ssh连接"><a href="#3、ssh连接" class="headerlink" title="3、ssh连接"></a>3、ssh连接</h2><h3 id="使用wifi-ssh链接"><a href="#使用wifi-ssh链接" class="headerlink" title="使用wifi+ssh链接"></a>使用wifi+ssh链接</h3><p>在SD卡中新建文件，命名为wpa_supplicant.conf，输入如下内容并保存。</p>
+<p>在SD卡中新建文件，命名为ssh，内容为空。</p>
+<h3 id="使用usb连接线连结"><a href="#使用usb连接线连结" class="headerlink" title="使用usb连接线连结"></a>使用usb连接线连结</h3><p><a target="_blank" rel="noopener" href="https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e">https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e</a></p>
+<h2 id="4、网络配置"><a href="#4、网络配置" class="headerlink" title="4、网络配置"></a>4、网络配置</h2><p><a target="_blank" rel="noopener" href="https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e">https://gist.github.com/superdodd/06b91ba03899e47beb43078b27dc601e</a></p>
+<p>在进行配置之前需要开启root登陆</p>
+<p>首先设置密码</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo passwd root</span><br></code></pre></td></tr></table></figure>
+<p>启用 root 账号</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">sudo passwd <span class="hljs-comment">--unlock root </span><br></code></pre></td></tr></table></figure>
+<p>启用 root 账号登录</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>ssh/sshd_config<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#PermitRootLogin prohibit-password</span><br>PermitRootLogin yes<br></code></pre></td></tr></table></figure>
+<p>Ctrl + W 快捷键<br>搜索 PermitRootLogin prohibit-password<br>改为PermitRootLogin yes 并删掉#号<br>或者直接新建一行。</p>
+<p>Ctrl + O 快捷键 保存</p>
+<p>Ctrl + X 快捷键 退出 Nano 编辑器</p>
+<p>这里使用usb连接ssh，编辑<code>/etc/network/interfaces</code>，添加以下内容：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">allow</span></span>-hotplug usb<span class="hljs-number">0</span><br><span class="hljs-attribute">iface</span> usb<span class="hljs-number">0</span> inet static<br>    <span class="hljs-attribute">address</span> <span class="hljs-number">192.168.2.2</span><br>    <span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br>    <span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.2.1</span><br></code></pre></td></tr></table></figure>
+<h2 id="5、换源"><a href="#5、换源" class="headerlink" title="5、换源"></a>5、换源</h2><p>1、首先编辑 /etc/apt/sources.list 文件，没装vim之前，推荐用 nano 命令编辑。在修改之前先把源列表备份，然后再修改sources.list。命令如下：[mw_shl_code=bash,true]cp /etc/apt/sources.list /etc/apt/sources.list.bak  #备份为 sources.list.bak<br>nano /etc/apt/sources.list    #编辑sources.list 文件[/mw_shl_code]<br>进入编辑界面，删除原有的内容或者用#注释掉原来的源，添加下方的源：<br>[mw_shl_code=bash,true]#deb <a target="_blank" rel="noopener" href="http://mirrordirector.raspbian.org/raspbian/">http://mirrordirector.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br># Uncomment line below then ‘apt-get update’ to enable ‘apt-get source’<br>#deb-src <a target="_blank" rel="noopener" href="http://archive.raspbian.org/raspbian/">http://archive.raspbian.org/raspbian/</a> jessie main contrib non-free rpi<br>deb <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi<br>deb-src <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/raspbian/raspbian/">http://mirrors.aliyun.com/raspbian/raspbian/</a> jessie main contrib non-free rpi[/mw_shl_code]<br>或其他源<br>[mw_shl_code=bash,true]#大连东软信息学院(北方用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#中国科学技术大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#清华大学<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#重庆大学(中西部用户)<br>#deb <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi<br>#deb-src <a target="_blank" rel="noopener" href="http://mirrors.cqu.edu.cn/raspbian/raspbian/">http://mirrors.cqu.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free rpi[/mw_shl_code]<br>注意：镜像区别jessie或wheezy版本，软件源也对应一样。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">deb http:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/raspbian/</span>raspbian/ buster main contrib non-free rpi<br>deb-src http:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/raspbian/</span>raspbian/ buster main contrib non-free rpi<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>apt<span class="hljs-regexp">/sources.list.d/</span>raspi.list<br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">deb http:<span class="hljs-regexp">//mi</span>rrors.ustc.edu.cn<span class="hljs-regexp">/archive.raspberrypi.org/</span>debian/ stretch main ui<br><span class="hljs-comment"># Uncomment line below then &#x27;apt-get update&#x27; to enable &#x27;apt-get source&#x27;</span><br><span class="hljs-comment">#deb-src http://archive.raspberrypi.org/debian/ stretch main ui</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="6、备份"><a href="#6、备份" class="headerlink" title="6、备份"></a>6、备份</h2><p>查询</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查询盘符</span><br>diskutil list <br><span class="hljs-comment"># 下面图片中的dev/disk2既对应的树莓派的TF卡</span><br></code></pre></td></tr></table></figure>
+<p>dd命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#使用dd进行备份，同时使用gzip将备份文件进行压缩</span><br>sudo dd <span class="hljs-keyword">if</span>=/dev/disk4 bs=1m | gzip &gt; ~/demo/pi_zero/back_wlan.gz<br><span class="hljs-comment">#将“/dev/rdiskx ”改成您 Micro SD 卡的所在位置， if 參數是指定資料來源 (也就是 Micro #SD 卡)   of 則是指定備份影像檔的儲存路徑與檔案名稱 </span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo diskutil unmount /dev/disk4s1<br><br>gzip -dc ./backupImage-pi-dashboard.gz | sudo dd of=/dev/disk4 bs=1m<br></code></pre></td></tr></table></figure>
+<h2 id="7、pip安装"><a href="#7、pip安装" class="headerlink" title="7、pip安装"></a>7、pip安装</h2><p>1.首先安装setuptools</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">sudo apt-<span class="hljs-builtin-name">get</span> install -y python-pip  <br>sudo apt-<span class="hljs-builtin-name">get</span> install -y python3-pip  <br></code></pre></td></tr></table></figure>
+<p>2.换源</p>
+<p>~/.pip/pip.conf</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim">[<span class="hljs-keyword">global</span>]<br><span class="hljs-built_in">index</span>-url = http<span class="hljs-variable">s:</span>//pypi.tuna.tsinghua.edu.<span class="hljs-keyword">cn</span>/simple<br></code></pre></td></tr></table></figure>
+<h2 id="8、配置远程桌面"><a href="#8、配置远程桌面" class="headerlink" title="8、配置远程桌面"></a>8、配置远程桌面</h2><p>在终端输入以下命令进入配置界面。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">sudo raspi-<span class="hljs-built_in">config</span><br></code></pre></td></tr></table></figure>
+<p>依次操作：Interfacing Options -&gt; VNC -&gt; Yes。之后系统会提示你是否要安装 VNC 服务，输入 y 之后回车，等待系统自动下载安装完成，一切顺利的话 VNC 服务就启动了！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227180642490.png" srcset="/img/loading.gif" alt="image-20210227180642490"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227180727613.png" srcset="/img/loading.gif" alt="image-20210227180727613"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227180744653.png" srcset="/img/loading.gif" alt="image-20210227180744653"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227201453435.png" srcset="/img/loading.gif" alt="image-20210227201453435"></p>
+<p>输入</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">vncserver</span><br></code></pre></td></tr></table></figure>
+<p>下载vnc viewer</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Brook1711/fig_for_blog/img/image-20210227201422979.png" srcset="/img/loading.gif" alt="image-20210227201422979"></p>
+<p>框内输入树莓派ip地址即可连接</p>
+<h2 id="9、ip固定"><a href="#9、ip固定" class="headerlink" title="9、ip固定"></a>9、ip固定</h2><p>若不进行ip固定，则很有可能电脑将其判定为MITM攻击，编辑电脑~/.ssh/known_hosts文件，删除重复host</p>
+<p>在树莓派上：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo nano <span class="hljs-regexp">/etc/</span>network/interfaces<br></code></pre></td></tr></table></figure>
+<p>在最后一行加入：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute"><span class="hljs-nomarkup">allow</span></span>-hotplug usb<span class="hljs-number">0</span><br><span class="hljs-attribute">iface</span> usb<span class="hljs-number">0</span> inet static<br>    <span class="hljs-attribute">address</span> <span class="hljs-number">192.168.2.2</span><br>    <span class="hljs-attribute">netmask</span> <span class="hljs-number">255.255.255.0</span><br>    <span class="hljs-attribute">gateway</span> <span class="hljs-number">192.168.2.1</span><br></code></pre></td></tr></table></figure>
+<p>在<code>/etc/resolvconf.conf</code>中编辑：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">nameservers</span>=<span class="hljs-number">192.168</span>.<span class="hljs-number">2.1</span><br></code></pre></td></tr></table></figure>
+<p>configure the RNDIS/Ethernet Gadget interface with the following parameters: - Configure IPV4: <code>Manually</code> - IP Address: <code>192.168.2.1</code> - Subnet Mask: <code>255.255.255.0</code> - Router: (none) - Under Advanced -&gt; DNS, add your favorite DNS server, like <code>8.8.8.8</code> or your home router.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/coding/">coding</a>
+                    
+                      <a class="hover-with-bg" href="/categories/coding/pi-zero/">pi zero</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/pi-zero/">pi_zero</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/26/pi-zero%E5%AD%A6%E4%B9%A02-%E7%A9%BA%E5%BF%83%E6%9D%AF%E9%A9%B1%E5%8A%A8/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">pi-zero学习2: 空心杯驱动</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/24/%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E4%B8%8A%E7%9A%84%E9%AB%98%E6%A0%A1%E8%AE%A1%E5%88%92%EF%BC%88%E7%99%BD%E5%AB%96%E8%AE%A1%E5%88%92%EF%BC%89/">
+                        <span class="hidden-mobile">在阿里云上的高校计划（白嫖计划）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e0419fedd5e556b604c8',
+          clientSecret: '6abe437de2748027487d5081923a7dc4b0ebdf98',
+          repo: 'brook1711.github.io',
+          owner: 'Brook1711',
+          admin: ["Brook1711"],
+          id: '819d85fbcc17069e2a710299adc55a4a',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-185713601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YREZJ0498S"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YREZJ0498S');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":250,"height":250},"mobile":{"show":true,"scale":0.7},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>

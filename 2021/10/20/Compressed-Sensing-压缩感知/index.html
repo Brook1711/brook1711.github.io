@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="又是元气满满的一天呢">
+  <meta name="author" content="Brook1711">
+  <meta name="keywords" content="">
+  <title>Compressed Sensing 压缩感知 - Brook1711</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-185713601-1","gtag":"G-YREZJ0498S","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Brook1711's page</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020123214.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Compressed Sensing 压缩感知">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-20 12:25" pubdate>
+        2021年10月20日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Compressed Sensing 压缩感知</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Compressed-Sensing-压缩感知技术"><a href="#Compressed-Sensing-压缩感知技术" class="headerlink" title="Compressed Sensing 压缩感知技术"></a>Compressed Sensing 压缩感知技术</h1><h2 id="第一课：简介"><a href="#第一课：简介" class="headerlink" title="第一课：简介"></a>第一课：简介</h2><p>参考视频：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SbU1pahbbkc&amp;t=328s">https://www.youtube.com/watch?v=SbU1pahbbkc&amp;t=328s</a></p>
+<blockquote>
+<p>This video introduces compressed sensing, which is an exciting new branch of applied mathematics, making it possible to reconstruct full images from a random subset of the pixels.  There is a ton of beautiful math behind this concept, touching on high-dimensional geometry, robust statistics, and optimization.<br>Book Website: <a target="_blank" rel="noopener" href="http://databookuw.com">http://databookuw.com</a><br>Book PDF: <a target="_blank" rel="noopener" href="http://databookuw.com/databook.pdf">http://databookuw.com/databook.pdf</a><br>These lectures follow Chapter 3 from:<br>“Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control”  by Brunton and Kutz<br>Amazon: <a target="_blank" rel="noopener" href="https://www.amazon.com/Data-Driven-Sc">https://www.amazon.com/Data-Driven-Sc</a>…<br>Brunton Website: eigensteve.com</p>
+</blockquote>
+<p>首先考虑有一张高清图片，上面有成千上万个像素点:<br><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020123639.png" srcset="/img/loading.gif" alt="高清图片"></p>
+<p>我们把这个图片上的像素点拉直拉成一个向量${\boldsymbol  x} \in {\mathbb R}^{M\times 1}$。这里M等于像素点的个数且维度非常大，这时传输一个图像花费的开销是非常高的，所以要对信息量进行压缩，一个有效的方式就是对${\boldsymbol y}$做DFT变换，此时会得到一个稀疏的列向量${\boldsymbol s}\in {\mathbb C}^{M\times 1}$：</p>
+<script type="math/tex; mode=display">
+{\boldsymbol s}={\mathbf U}_M{\boldsymbol x}</script><p>这里的${\mathbf U}<em>M \in { \mathbb C}^{M \times M}$是一个标准的DFT矩阵：$\left[\mathbf{U}</em>{N}\right]_{n, m}=\frac{1}{\sqrt{N}} e^{-\mathrm{i} \frac{2 \pi}{N}(n-1)(m-1)}$</p>
+<p>此时图像就变成了：</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020124545.png" srcset="/img/loading.gif" alt="DFT变换之后的图像"></p>
+<p>但是其实右边的经过DFT的图像并不是所有细节都需要，我们可以过滤掉百分之95左右的细节，但是依然可以从中恢复比较完整的图像，</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020131205.png" srcset="/img/loading.gif" style="zoom:25%;" /></p>
+<p>最后可以通过IDFT将图像回复出来</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020131307.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p>注意，在整个过程中，我们利用了${\boldsymbol s}$的稀疏性减少了百分之95的传输开销，但是这不是压缩感知干的事情，压缩感知干的事情是：我们原来还是需要对超大维度对${\boldsymbol x}$进行DFT变换，其计算复杂度太高，那么可不可以在做DFT之前就把95%的冗余信息全部删去呢，也就是超低的采样进行图像冗余信息的删减：</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020131705.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+<p>接下来我们定义一个观测（采样，measurements）矩阵${\boldsymbol y} \in {\mathbb C}^{N\times 1}$，注意到$N\ll M$ </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+{\boldsymbol y} & = {\mathbf C} {\boldsymbol x} \\
+                                & = {\mathbf C} {\mathbf U}_M^H \color{red}{\boldsymbol s}
+\end{aligned}</script><p>现在的问题是，我可以得到观测值（采样值）${\boldsymbol y}\in {\mathbb C}^{N \times 1}$,根据${\boldsymbol y}$的值去求解${\boldsymbol s}$的值，只要我知道了${\boldsymbol s}$的值之后我就可以通过IDFT（反傅立叶变换）去得到我最终想要获取的源图像${\boldsymbol x}$ </p>
+<p>这里需要注意一点，${\boldsymbol s}$是一个very tall 的高维度的列向量，而${\boldsymbol y}$是一个very short 的列向量，所以去求解的时候${\boldsymbol s}$有无数个解。所以之后会用一种$\text{particular sparsity promoting norm called \color{red} one norm}$。</p>
+<h2 id="第二课：数学推导"><a href="#第二课：数学推导" class="headerlink" title="第二课：数学推导"></a>第二课：数学推导</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=inr-nGnVc0k">Compressed Sensing: Mathematical Formulation - YouTube</a></p>
+<blockquote>
+<p>This video introduces the mathematical theory of compressed sensing, related to high-dimensional geometry, robust statistics, and optimization.   Book Website: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqblE3ZG4yUjl1dHAzc2pVSlZheTh3T0N0WHpNd3xBQ3Jtc0tucXR0dHd4NkxpZDUyelFZX1FPd0N4SGlKOE9qLVVYTy1ZYnhIOVdGNWs0ZnZMTUNYQWFPZ3BpcmZfS2F5LUlyWWpJc2FDaXhiV0dtWVBwaEFJa096OGhxVDllZ2Q3SEY4MzBCMUplNWlGa1FmMFRvZw&amp;q=http%3A%2F%2Fdatabookuw.com">http://databookuw.com</a>  Book PDF: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbDFaOHI0LVN4LW5YX1hqOEhUeVhvRGZQVkk0Z3xBQ3Jtc0tuZHowSGIzNkRiQ0E2RkNZWFJrNC1OY3pqSFFUNGtFNElRTm4xOGpCTldFbkQzV0xLazFwRVVUc0tDdVVxelRxbXMxUzJWSmtqcm51bEFWLUd6YWVuYnhqTlg3T1I2YmhDWDRXU1AxeUVGa3dUUjhkdw&amp;q=http%3A%2F%2Fdatabookuw.com%2Fdatabook.pdf">http://databookuw.com/databook.pdf</a> These lectures follow Chapter 3 from: “Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control”  by Brunton and Kutz Amazon: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbkJmY2lxdEpDSUVWQmRjWVdaV3Z6aGxRWWhSZ3xBQ3Jtc0tuUVBKc3Y1VEFNMllSbjk5OXZ3V1l5T3J4ZWNheWpOUFFoWUhTU3RIMENpNWZaRzBZMWd4VmpVSnBCRElfbmE4S1lPQTI3NS1CZkM1UVNlcDBDcjR1bjZDRWNxdlRiYlBBVmFCNHpHOVZtUXBKY19pRQ&amp;q=https%3A%2F%2Fwww.amazon.com%2FData-Driven-Science-Engineering-Learning-Dynamical%2Fdp%2F1108422098%2F">https://www.amazon.com/Data-Driven-Sc…</a> Brunton Website: eigensteve.com</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020143405.png" srcset="/img/loading.gif" alt=""></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+{\boldsymbol y} & = {\mathbf C} {\boldsymbol x} \\
+                                & = {\mathbf C} {\mathbf U}_M^H \color{red}{\boldsymbol s}
+\end{aligned}</script><p>Underdetermined inverse problem : 知道了$\boldsymbol y$，去求解${\boldsymbol s}$ 但是${\boldsymbol s}$ 的维度要远远大于${\boldsymbol y}$ ，所以理论上${\boldsymbol s}$有无数个解</p>
+<p>这个问题是$\text { combinatorial hard problem }$ ,关键问题是你如何在这么多${\boldsymbol s}$中找到稀疏的${\boldsymbol s}$。经历了十五年的概率学发展之后，人门可以通过一些算法来找到包含0元素最多的${\boldsymbol s}$。即 $\color{red}\text{find the sparsest s which satisfies the above equition} $</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020145130.png" srcset="/img/loading.gif" alt="">可以看到，第一项$||{\mathbf C}{\mathbf \Psi}{\boldsymbol s }-{\boldsymbol y} ||_2 $表示普通的方程求解，第二项则$\lambda||{\boldsymbol s} ||_1$表示了最小化$\boldsymbol s$ 的一范数，这样做可以使其最后稀疏</p>
+<p>该优化</p>
+<script type="math/tex; mode=display">
+\min_{\boldsymbol s} \left\|{\mathbf C} {\mathbf \Psi} {\boldsymbol s}-y\right\|_{2}+\lambda\|\boldsymbol s\|_{1}</script><p>是一个convex optimization 这意味着其计算复杂度是可以接受的</p>
+<p>同时，我们真正想知道的是：</p>
+<script type="math/tex; mode=display">
+\min_{\boldsymbol s} \left\|{\mathbf C} {\mathbf \Psi} {\boldsymbol s}-y\right\|_{2}+\lambda\|\boldsymbol s\|_{0}</script><p>但是，这就不是一个凸优化问题了，这在计算机里面并不可解，但是在2000年左右，有人提出令1范数代替0范数，最终的解大概率会趋近于我们想要的稀疏的${\boldsymbol s}$</p>
+<p>也可以写成另一种形式：</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020150211.png" srcset="/img/loading.gif" alt=""></p>
+<p>但是有些时候存在测量噪声，所以经常不会使限制完全等于0:</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020150336.png" srcset="/img/loading.gif" alt=""></p>
+<h2 id="第三课：工作条件"><a href="#第三课：工作条件" class="headerlink" title="第三课：工作条件"></a>第三课：工作条件</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hmBTACBGWJs">Compressed Sensing: When It Works - YouTube</a></p>
+<blockquote>
+<p>This video provides conditions on when compressed sensing will work to reconstruct a full image from a random subsample of pixels.  Book Website: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbjVSN0tGRzR4YThMaERCZlNLTkV3Rk5pSGZ1Z3xBQ3Jtc0trUUxGcGRQUnNUaTd4ZVZ2dEdfMFRCOEJLTi1wS21oVHU0TlY5cFdhdWF4VjdRdTQwS3R0QzB6ZzZYRFppdDhJSFFBcmc4ZUE3V2djZENJbzM4b1NZUWJhZXhYRlg2M0hmWXNJdTl2MXNsa0JMcFRGSQ&amp;q=http%3A%2F%2Fdatabookuw.com">http://databookuw.com</a>  Book PDF: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqbTBqZ2xuQWk1a0JwUU9sOE1DVzVsMU5fQkhMUXxBQ3Jtc0tuV2RnOUkxcU5feUJsX2E1R3pCRnpHYUE0ZkhZRlBRTTNPNXVxNUFxSFJSOTEydXF3UjU3X21zbEctQ2RBVTV6cE5KM3duNlhaelJEVmdRWWxBek5FbnBfOEk0QXRpZ29OUVprbWZ1bEZuVzNDOE1Scw&amp;q=http%3A%2F%2Fdatabookuw.com%2Fdatabook.pdf">http://databookuw.com/databook.pdf</a> These lectures follow Chapter 3 from: “Data-Driven Science and Engineering: Machine Learning, Dynamical Systems, and Control”  by Brunton and Kutz Amazon: <a target="_blank" rel="noopener" href="https://www.youtube.com/redirect?event=video_description&amp;redir_token=QUFFLUhqazUydkpLOTUyMHI5LWlTYTYxWGZScXo0ajlEUXxBQ3Jtc0tsQjQtSjFySi1KaHZDbGpqOWQ3LXFveUpaVVlsNlgwT2FfYjNNVFBGX2pHOG9EMUFHVlFIUXN5ZGMwemp5cmZJUUVKdDJjb183b1M4cHlGVGcyNm1Pa0tSVDV3V09DUXRkY2paaTA2OE9NMmlzdldTcw&amp;q=https%3A%2F%2Fwww.amazon.com%2FData-Driven-Science-Engineering-Learning-Dynamical%2Fdp%2F1108422098%2F">https://www.amazon.com/Data-Driven-Sc…</a> Brunton Website: eigensteve.com</p>
+</blockquote>
+<p>First condition: Incoherence</p>
+<p>矩阵${\mathbf C}$中的每一行必须和${\mathbf \Psi}$中的所有列非正交，或者不能相对于${\mathbf \Psi}$中的任何一列过于平行</p>
+<p><img src="https://raw.githubusercontent.com/Brook1711/fig_for_blog/master/img/20211020154535.png" srcset="/img/loading.gif" alt=""></p>
+<p>高斯分布、伯努利分布等等</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/math/">math</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/math/">math</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Algorithm/">Algorithm</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CS/">CS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/26/hello-world/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/15/EM-Algrithm-%E6%9C%9F%E6%9C%9B%E6%9C%80%E5%A4%A7%E5%8C%96%E7%AE%97%E6%B3%95/">
+                        <span class="hidden-mobile">EM Algorithm 期望最大化算法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e0419fedd5e556b604c8',
+          clientSecret: '6abe437de2748027487d5081923a7dc4b0ebdf98',
+          repo: 'brook1711.github.io',
+          owner: 'Brook1711',
+          admin: ["Brook1711"],
+          id: 'c4300398e40cf668d25eaf08e384ac0c',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-185713601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YREZJ0498S"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YREZJ0498S');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":250,"height":250},"mobile":{"show":true,"scale":0.7},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>

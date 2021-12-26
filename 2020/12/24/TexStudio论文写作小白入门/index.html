@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="又是元气满满的一天呢">
+  <meta name="author" content="Brook1711">
+  <meta name="keywords" content="">
+  <title>TexStudio论文写作小白入门 - Brook1711</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-185713601-1","gtag":"G-YREZJ0498S","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Brook1711's page</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/20201224203849.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="TexStudio论文写作小白入门">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-24 19:20" pubdate>
+        2020年12月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">TexStudio论文写作小白入门</h1>
+            
+            <div class="markdown-body">
+              <h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><h2 id="我的个人博客"><a href="#我的个人博客" class="headerlink" title="我的个人博客"></a><a target="_blank" rel="noopener" href="https://brook1711.com/2020/12/24/TexStudio%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/">我的个人博客</a></h2><h2 id="我的CSDN"><a href="#我的CSDN" class="headerlink" title="我的CSDN"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42242398/article/details/111670612">我的CSDN</a></h2><h2 id="我的github"><a href="#我的github" class="headerlink" title="我的github"></a><a target="_blank" rel="noopener" href="https://github.com/Brook1711">我的github</a></h2><h1 id="TexStudio论文写作小白入门"><a href="#TexStudio论文写作小白入门" class="headerlink" title="TexStudio论文写作小白入门"></a>TexStudio论文写作小白入门</h1><p>博主今年大四，由于直博的原因希望尽早开始写论文，作为一名小白希望把这个过程记录下来并希望对后人有所帮助。</p>
+<p>博主专业通信工程，未来几年基本都会在IEEE电气电子工程师学会发文</p>
+<h2 id="0、下载安装TexStudio和MikTex"><a href="#0、下载安装TexStudio和MikTex" class="headerlink" title="0、下载安装TexStudio和MikTex"></a>0、下载安装TexStudio和MikTex</h2><p>TexStudio下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://www.texstudio.org/">https://www.texstudio.org/</a></p>
+<p>MikTex下载地址</p>
+<p><a target="_blank" rel="noopener" href="https://miktex.org/">https://miktex.org/</a></p>
+<p>两个软件都是直接下载安装一路默认就可以</p>
+<h2 id="1、确定发稿类型"><a href="#1、确定发稿类型" class="headerlink" title="1、确定发稿类型"></a>1、确定发稿类型</h2><p>IEEE一般会有以下几种论文类型：</p>
+<p><strong>Transactions</strong> （学报，主要为高水平技术类文章）</p>
+<p>IEEE Transactions on Wireless Communications (TWC)</p>
+<p>IEEE Transactions on Communications (TCOM)</p>
+<p>IEEE Transactions on Signal Processing (TSP) </p>
+<p>IEEE Transactions on Vehicular Technology (TVT)</p>
+<p>（P.S.: TWC和TCOM是通信界公认的顶级期刊，TSP是信号处理界公认的顶级期刊。因为我们做RIS，所以TSP也要关注。上面所列举的Trans.类的期刊虽然都是二区，但都是公认的质量很高的期刊，比下面列举的一些journal / letter质量更高一些。所以Trans.也是我们需要重点阅读的期刊。）</p>
+<p><strong>Journal</strong> （期刊，技术类+综述类文章，多以技术类文章为主）</p>
+<p>IEEE Journal on Selected Areas in Communications (JSAC)</p>
+<p>IEEE Journal of Selected Topics in Signal Processing (JSTSP)</p>
+<p>IEEE Internet of Things Journal (JIOT)</p>
+<p>IEEE Systems Journal (SJ)</p>
+<p>（P.S.: JSAC是需要重点关注的期刊，无论是影响因子还是文章质量，都是通信界公认的顶级期刊，内容涵盖也很广。JSTSP是信号处理类的专刊，文章质量也很高。剩下两个关注一下即可。）</p>
+<p><strong>Letter</strong> （快报，文章短不超过5页，特点是文章的idea很新，发表速度相比Trans.快。所以很多人先在Letter上发表一个创新点，工作可以不用那么完整，之后再在Trans.上发表详细的技术内容。）</p>
+<p>IEEE Wireless Communications Letters (WCL)</p>
+<p>IEEE Communications Letters (CL)</p>
+<p>IEEE Signal Processing Letters (SPL)</p>
+<p><strong>Magazine</strong> （杂志，综述类文章。特点是影响因子高。面向群体为大众而非专业人员，所以公式推导较少。）</p>
+<p>IEEE Communications Magazine</p>
+<p>IEEE Wireless Communications</p>
+<p>Proceedings of the IEEE</p>
+<p>IEEE Vehicular Technology Magazine</p>
+<p>IEEE Network</p>
+<p>如果想查某个期刊的影响因子以及具体分区可以在这个网站上查找：</p>
+<p><a target="_blank" rel="noopener" href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
+<p><strong>相关会议</strong></p>
+<p>（P.S.: <strong>会议论文不应当作为我们的重点阅读对象**</strong>。**因为会议论文较短，即便是顶级会议录用的paper，质量也是参差不齐的，所以我们作为一个参考就行，对于文章质量的好坏应该有一个自己的评判。这里我列出一些顶级会议和权威会议，都是通信业界公认的一些会议。因为通信会议实在太多了，其他很多会议我们无需关注，只看最好的即可。）</p>
+<p>GlobeCom (IEEE Global Communications Conference)</p>
+<p>ICC (IEEE International Conference on Communications)</p>
+<p>ICASSP (IEEE International Conference on Acoustics, Speech and Signal Processing)</p>
+<p>SPAWC (IEEE International Workshop on Signal Processing Advances in Wireless Communications)</p>
+<p>WCNC (IEEE Wireless Communications and Networking Conference)</p>
+<p>PIMRC (International Symposium on Personal, Indoor and Mobile Radio Communications)</p>
+<p>VTC (Vehicular Technology Conference)</p>
+<p>（上面这几个会议GlobeCom≈ICC&gt;WCNC≈PIMRC≈VTC；ICASSP和SPAWC是信号处理类的顶会，质量约等于ICC。）</p>
+<h2 id="2、在官网下载论文模板"><a href="#2、在官网下载论文模板" class="headerlink" title="2、在官网下载论文模板"></a>2、在官网下载论文模板</h2><p>模板可以在IEEE官网找到：</p>
+<p><a target="_blank" rel="noopener" href="https://template-selector.ieee.org/secure/templateSelector/publicationType">https://template-selector.ieee.org/secure/templateSelector/publicationType</a></p>
+<h3 id="2-1-选择出版物类型"><a href="#2-1-选择出版物类型" class="headerlink" title="2.1 选择出版物类型"></a>2.1 选择出版物类型</h3><p>我这里选择的是Letter：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204337680.png" srcset="/img/loading.gif" alt="image-20201224204337680"></p>
+<h3 id="2-2-选择出版物"><a href="#2-2-选择出版物" class="headerlink" title="2.2 选择出版物"></a>2.2 选择出版物</h3><p>我这里选择的是wireless communication Letters</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204323411.png" srcset="/img/loading.gif" alt="image-20201224204323411"></p>
+<h3 id="2-3-选择文章类型"><a href="#2-3-选择文章类型" class="headerlink" title="2.3 选择文章类型"></a>2.3 选择文章类型</h3><p>Letters只有一个选项</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204027677.png" srcset="/img/loading.gif" alt="image-20201224204027677"></p>
+<h3 id="2-4-选择模板格式"><a href="#2-4-选择模板格式" class="headerlink" title="2.4 选择模板格式"></a>2.4 选择模板格式</h3><p>这里选择LaTex</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204013473.png" srcset="/img/loading.gif" alt="image-20201224204013473"></p>
+<h3 id="2-5-下载模板"><a href="#2-5-下载模板" class="headerlink" title="2.5 下载模板"></a>2.5 下载模板</h3><p>全部选择完成后就可以看到你想要的下载按钮了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204002146.png" srcset="/img/loading.gif" alt="image-20201224204002146"></p>
+<h2 id="3、使用TexStudio打开下载的模板"><a href="#3、使用TexStudio打开下载的模板" class="headerlink" title="3、使用TexStudio打开下载的模板"></a>3、使用TexStudio打开下载的模板</h2><p>在压缩包的如下路径中可以找到：</p>
+<p>bare_jrnl.tex文件，这就是我们需要的模板</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204506130.png" srcset="/img/loading.gif" alt="image-20201224204506130"></p>
+<p>右键通过TexStudio打开</p>
+<p>点击左上角编译键编译</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224204525145.png" srcset="/img/loading.gif" alt="image-20201224204525145"></p>
+<p>就可以看到代码实现的效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/20201225121412.png" srcset="/img/loading.gif" alt="image-20201224204601627"></p>
+<p>这时文档是双栏的，但是在投稿时经常会要求单栏，那么在代码的最上方插入代码：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex"><span class="hljs-keyword">\documentclass</span>[12pt, draftclsnofoot, onecolumn]&#123;IEEEtran&#125;<br></code></pre></td></tr></table></figure>
+<p>即可转换为单栏视图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/20201224204856.png" srcset="/img/loading.gif" alt="20201224204856.png"></p>
+<h2 id="具体投稿格式（WCL）"><a href="#具体投稿格式（WCL）" class="headerlink" title="具体投稿格式（WCL）"></a>具体投稿格式（WCL）</h2><p><a target="_blank" rel="noopener" href="https://www.comsoc.org/publications/journals/ieee-wcl/ieee-wireless-communications-letters-submit-manuscript">https://www.comsoc.org/publications/journals/ieee-wcl/ieee-wireless-communications-letters-submit-manuscript</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/image-20201224205317041.png" srcset="/img/loading.gif" alt="image-20201224205317041"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/tool/">tool</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IEEE/">IEEE</a>
+                    
+                      <a class="hover-with-bg" href="/tags/TexStudio/">TexStudio</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/25/TexStudio-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88%E7%BB%86%E8%8A%82/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TexStudio 论文排版细节</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/18/Hexo-%E6%8F%92%E4%BB%B6%EF%BC%8C-%E4%BB%8B%E7%BB%8D%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6/">
+                        <span class="hidden-mobile">Hexo 插件，介绍本博客使用插件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e0419fedd5e556b604c8',
+          clientSecret: '6abe437de2748027487d5081923a7dc4b0ebdf98',
+          repo: 'brook1711.github.io',
+          owner: 'Brook1711',
+          admin: ["Brook1711"],
+          id: 'b03cf261925427f09095bfc21cebc564',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-185713601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YREZJ0498S"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YREZJ0498S');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":250,"height":250},"mobile":{"show":true,"scale":0.7},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>

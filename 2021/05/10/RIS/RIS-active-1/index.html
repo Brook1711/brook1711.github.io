@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="又是元气满满的一天呢">
+  <meta name="author" content="Brook1711">
+  <meta name="keywords" content="">
+  <title>active RIS  文献调研 1 - Brook1711</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":null,"google":"UA-185713601-1","gtag":"G-YREZJ0498S","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Brook1711's page</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/brook1711/fig_for_blog@master/img/20201224203849.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="active RIS  文献调研 1">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-10 00:05" pubdate>
+        2021年5月10日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">active RIS  文献调研 1</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Active-RIS-vs-Passive-RIS-Which-Will-Prevail-in-6G"><a href="#Active-RIS-vs-Passive-RIS-Which-Will-Prevail-in-6G" class="headerlink" title="Active RIS vs. Passive RIS: Which Will Prevail in 6G?"></a>Active RIS vs. Passive RIS: Which Will Prevail in 6G?</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2103.15154.pdf">https://arxiv.org/pdf/2103.15154.pdf</a><br>阅读目的：其中提到了反射元对幅度的增幅模型，即，（activate RIS）</p>
+<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><blockquote>
+<p>From 1G to 5G, wireless channels have been traditionally considered to be uncontrollable. Thanks to the recent advances in meta-materials, reconfigurable intelligent surfaces (RISs) <mark>have emerged as a new paradigm</mark> for controlling wireless channels intelligently, thus making it a revolutionary technique for future 6G wireless communications. However, due to the <mark>“double fading” effect</mark>, RIS only achieves a <mark>negligible capacity gain</mark> in typical communication scenarios, which however has been widely ignored in many existing works. In this paper, the concept of active RIS is proposed to break this fundamental physical limit. Different from the existing passive RIS that reflects signals passively without amplification, active RIS can actively amplify the reflected signals. We then develop a signal model for active RIS, which is validated through experimental measurements. Based on this new signal model, we analyze the capacity gain  chievable by active RIS and formulate the capacity maximization problem in an active RIS aided system. Next, a joint transmit and reflect precoding algorithm is proposed to solve this problem. Finally, extensive results show that, compared with the baseline without RIS, the existing passive RIS can realize a negligible capacity gain of only 3% in typical application scenarios, while the proposed active RIS can achieve a noticeable capacity gain of 129%, thus overcoming the fundamental limit of “double fading” effect.<br><br/>“双衰落”导致RIS的辅助增益极低</p>
+</blockquote>
+<p>从1G到5G，传统观点上认为无线信道是不可以控制的。但是由于最近超材料（meta-material）的发展，可重构智能表面（RIS）已经成为智能控制无线信道的新范例，从而使其成为未来6G无线通信的革命性技术。 但是，由于“双重衰落”效应，RIS在典型的通信情况下只能实现微不足道的容量增益，但是在许多现有工作中却被广泛忽略。 在这篇文章中，提出了主动RIS的概念以打破这一基本物理限制。和现有的只是被动的反射信号不同，主动RIS可以主动增幅反射信号。我们随之建立了主动RIS的信号模型，该模型通过实验测量已经被证实。基于这种新的信号模型，我们分析了有源RIS可实现的容量增益，并提出了有源RIS辅助系统中的容量最大化问题。接下来，提出了一种联合发射和反射的预编码算法来解决这个问题。最后，广泛的结果表明，与不使用RIS的基线相比，现有的被动RIS在典型应用方案中只能实现3％的可忽略不计的容量增长，而建议的主动RIS可以实现129％的显着容量增长，因此可以克服 “双重衰落”效应的根本极限。</p>
+<h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><blockquote>
+<p>Over the past few decades, wireless communications have provided society with significant benefits. From 1G to 5G, the system capacity has been significantly improved by advancing the transceiver design, while the wireless channels have been usually considered to be uncontrollable. Recently, with the interdisciplinary development of meta-materials, electromagnetics, and wireless communications, a revolutionary technique called reconfigurable intelligent surface (RIS) has been proposed [1]–[4], which offers a novel design paradigm by adding new degrees of freedom to intelligently control wireless channels for improved communications. Specifically, an RIS is an array composed of massive passive elements, which reflect electromagnetic signals in a desired manner so as to reconfigure the wireless environment [5]. Thanks to its high array gain, low cost, low power, and <mark>low noise</mark> [5]– [7], RIS is expected to improve channel capacity [8], extend coverage [9], and reduce power consumption [10] for future 6G communications. Additionally, RISs are projected to have other applications such as in WiFi [11], precision measurement [12], and navigation [13].<br><br/><mark>低噪声的特性之前没有见过</mark></p>
+</blockquote>
+<p>在过去的几十年中，无线通信为社会带来了巨大的进步。 从1G到5G，先进的收发器设计大大提高了系统容量，而通常认为无线通道是不可控制的。近年来，随着超材料，电磁学和无线通信的跨学科发展，提出了一种革命性的技术，称为可重构智能表面（RIS）[1] – [4]，它通过增加新的自由度提供了一种新颖的设计范例。 智能控制无线信道以改善通信。具体地说，RIS是由大量无源元件组成的阵列，这些元件以所需的方式反射电磁信号，从而重新配置无线环境。由于其高阵列增益，低成本，低功耗和低噪声[5] – [7]，RIS有望在未来6G通信中提高信道容量[8]，扩展覆盖范围[9]和降低功耗[10]。此外，RIS预计将有望在其他场景中得到应用，例如WiFi [11]，精度测量[12]和导航[13]。</p>
+<blockquote>
+<p>Due to the negligible noise introduced by passive RISs, one of the most essential benefits of RISs is the <mark>“square law” array gain</mark>. In particular, the array gain of an $N$-element RIS is proportional to $N^2$ , which is N times larger than that achievable by the standard massive multiple-input multiple output (MIMO) [5]. Benefiting from this advantage, RIS is expected to bring significant capacity gains in future 6G wireless networks. <mark>However, actually significant capacity gains are only observed in atypical communication scenarios where the direct link from the transmitter to the receiver is completely blocked or very weak [8]–[10], [14]–[16].</mark> By contrast, in the typical scenario where the direct link is not weak, the common RISs with hundreds of passive elements can only achieve negligible capacity gains [17]. The reason behind this phenomenon is the “double fading” effect introduced by RIS, i.e., the signals received via the reflection link <mark>suffer from large-scale fading twice</mark>. Particularly, the equivalent path loss of the transmitter RIS-receiver link is the product (instead of the summation) of the path losses of the transmitter-RIS link and RIS-receiver link, which is usually thousands of times larger than that of the direct link [17]. As a result, the “double fading” effect makes it almost impossible for passive RIS to achieve a noticeable capacity gain in typical wireless environment. Most existing works on RIS have bypassed this effect by only considering atypical scenarios with very poor direct links [8]–[10], [14]– [16]. Therefore, to advance the practicability of RIS for future 6G wireless networks, a critical issue must to be addressed is: How to overcome the fundamental limit of “double fading” effect of RIS?<br><br/> RIS的特性——<mark>“平方律增益”</mark>（square law）</p>
+</blockquote>
+<p>由于无源RIS引入的噪声可忽略不计，所以RIS的最基本好处之一就是“平方律”阵列增益。特别是，N元素RIS的阵列增益与N 2成正比，这比标准大规模多输入多输出（MIMO）可获得的阵列增益大N倍[5]。受益于此优势，RIS有望在未来的6G无线网络中带来巨大的容量增长。但是，实际上只有在非典型的通信场景中才能观察到显着的容量增益，其中从发射机到接收机的直接链路被完全阻塞或非常弱[8] – [10]，[14] – [16]。相比之下，在直接链路不弱的典型情况下，具有数百个无源元件的普通RIS只能获得微不足道的容量增益[17]。这种现象背后的原因是RIS引入的“双重衰落”效应，即通过反射链路接收的信号两次遭受大规模衰落。特别是，发射机RIS-接收机链路的等效路径损耗是发射机-RIS链路和RIS-接收机链路的路径损耗的乘积（而不是总和），通常比直接链路的路径损耗大数千倍。链接[17]。结果，“双衰落”效应使得无源RIS在典型的无线环境中几乎不可能获得明显的容量增益。现有的大多数关于RIS的著作都只考虑了具有非常差的直接联系的非典型场景[8]-[10]，[14]-[16]，从而绕过了这种影响。因此，要提高RIS在未来6G无线网络中的实用性，必须解决的关键问题是：如何克服RIS的“双重衰落”效应的基本限制？</p>
+<blockquote>
+<p>To break the fundamental physical limit of the “double fading” effect, the new concept of active RIS is proposed in this paper. Specifically, our contributions are summarized as follows:<br><br/>• We propose the concept of active RIS to overcome the “double fading” effect in typical communication scenarios. Different from the existing passive RIS that just passively reflects signals without amplification, the key feature of active RIS is the capability of actively reflectin g signals with amplification at the expense of additional power consumption.<br><br/>• We develop a new signal model for the proposed active RIS, which characterizes how the incident signal is amplified and how <mark>non-negligible thermal noise</mark> is introduced at the active elements. Particularly, an active RIS element was designed and fabricated to validate the developed signal model through experimental measurements.<br><br/>• Based on the proposed signal model, we analyze the capacity gain achievable by active RISs and formulate a capacity maximization problem in an active RIS aided MIMO system. Then, a joint transmit and reflect precoding algorithm is proposed to solve this problem. Extensive results show that, in a typical communication scenario, the existing passive RIS only achieves a negligible ca pacity gain of 3%, while the proposed active RIS is able to achieve a noticeable capacity gain of 129%, thus overcoming the fundamental limit of “double fading” effect.<br><br/>在主动RIS中考虑了热噪声</p>
+</blockquote>
+<p>为了打破“双衰落”效应的基本物理极限，本文提出了有源RIS的新概念。具体来说，我们的贡献总结如下：<br><br/>•我们提出了主动RIS的概念，以克服典型通信场景中的“双衰落”效应。不同于现有的被动RIS只是被动地反射信号而不进行放大，主动RIS的关键特征是能够通过放大来主动反射信号，但要付出额外的功耗。<br><br/>•我们为拟议的有源RIS开发了一个新的信号模型，该模型描述了入射信号如何放大以及如何在有源元件处引入不可忽略的热噪声。特别是，设计并制造了有源RIS元件，以通过实验测量来验证开发的信号模型。<br><br/>•基于提出的信号模型，我们分析了有源RIS可获得的容量增益，并提出了有源RIS辅助MIMO系统中的容量最大化问题。然后，提出了一种联合发射和反射的预编码算法来解决这个问题。广泛的结果表明，在典型的通信场景中，现有的被动RIS只能实现3％的可忽略不计的容量增益，而建议的主动RIS能够实现129％的显着容量增益，从而克服了“双重衰落”效果。</p>
+<blockquote>
+<p>The rest of this paper is organized as follows. In Section II, the concept of active RIS is introduced and its impact on channel capacity is analyzed. Then, the proposed joint precoding design for capacity maximization is provided in Section III. In Section IV, the results of experimental measurements and numerical simulations are presented. Finally, conclusions are drawn and future works are discussed in Section V. Notations: C and R+ denote the sets of complex and positive real numbers, respectively; [·] −1 , [·] T , and [·] H denote the inverse, transpose, and conjugate-transpose operations, respectively; k· k denotes the Euclidean norm of its argument; diag(·) denotes diagonal operation; R{·} denotes the real part of its argument; ⊗ denotes the Kronecker product; ∠[·] denotes the angle of its complex argument; ln(·) denotes the natural logarithm of its argument; CN (µ, Σ) denotes the complex multivariate Gaussian distribution with mean µ and variance Σ; IL is an L × L identity matrix, and 0L is an L × 1 zero vecto</p>
+</blockquote>
+<h1 id="可借鉴的点"><a href="#可借鉴的点" class="headerlink" title="可借鉴的点"></a>可借鉴的点</h1><h2 id="对于传统RIS“double-fading”的阐述"><a href="#对于传统RIS“double-fading”的阐述" class="headerlink" title="对于传统RIS“double fading”的阐述"></a>对于传统RIS“double fading”的阐述</h2><blockquote>
+<p> However, due to the <mark>“double fading” effect</mark>, RIS only achieves a <mark>negligible capacity gain</mark> in typical communication scenarios, which however has been widely ignored in many existing works.</p>
+<p><mark>However, actually significant capacity gains are only observed in atypical communication scenarios where the direct link from the transmitter to the receiver is completely blocked or very weak [8]–[10], [14]–[16].</mark> By contrast, in the typical scenario where the direct link is not weak, the common RISs with hundreds of passive elements can only achieve negligible capacity gains [17]. The reason behind this phenomenon is the “double fading” effect introduced by RIS, i.e., the signals received via the reflection link <mark>suffer from large-scale fading twice</mark>. Particularly, the equivalent path loss of the transmitter RIS-receiver link is the product (instead of the summation) of the path losses of the transmitter-RIS link and RIS-receiver link, which is usually thousands of times larger than that of the direct link [17]. As a result, the “double fading” effect makes it almost impossible for passive RIS to achieve a noticeable capacity gain in typical wireless environment. </p>
+</blockquote>
+<h2 id="关于平方律增益“square-law-array-gain”的叙述"><a href="#关于平方律增益“square-law-array-gain”的叙述" class="headerlink" title="关于平方律增益“square law array gain”的叙述"></a>关于平方律增益“square law array gain”的叙述</h2><blockquote>
+<p>Due to the negligible noise introduced by passive RISs, one of the most essential benefits of RISs is the <mark>“square law” array gain</mark>.</p>
+</blockquote>
+<h2 id="传统RIS大规模反射器件造成的问题的阐述"><a href="#传统RIS大规模反射器件造成的问题的阐述" class="headerlink" title="传统RIS大规模反射器件造成的问题的阐述"></a>传统RIS大规模反射器件造成的问题的阐述</h2><blockquote>
+<p>Due to the high overhead of N pilots for channel estimation [20] and the high complexity of O(N2 ) for real-time beamforming [21], such a large number of RIS elements makes the application of passive RIS in practical wireless networks almost impossible [17]. Consequently, most existing works have bypassed the “double fading” effect by only considering the atypical scenario where the direct link is completely blocked or very weak [5]–[10], [14]–[16].</p>
+</blockquote>
+<h2 id="active-RIS的硬件实现方法："><a href="#active-RIS的硬件实现方法：" class="headerlink" title="active RIS的硬件实现方法："></a>active RIS的硬件实现方法：</h2><blockquote>
+<p>To achieve this goal, the key component of an active RIS element is the additionally integrated active reflection type amplifier, which can be realized by many existing active components, such the current-inverting converter [22],the asymmetric current mirror [23], or even some integrated chips [24].</p>
+</blockquote>
+<h2 id="与RF-RIS和FD-AF-delay的不同"><a href="#与RF-RIS和FD-AF-delay的不同" class="headerlink" title="与RF-RIS和FD-AF delay的不同"></a>与RF-RIS和FD-AF delay的不同</h2><blockquote>
+<p>It should be noted that, the proposed active RIS is fundamentally different from the RIS equipped with active radio frequency (RF) components [25], [26]. Specifically, some passive RIS elements are connected to additional active RF chains, which are used for baseband signal processing. In this way, these RIS elements are enabled to have the signal processing capabilities [25], [26]. On the contrary, the proposed active RIS has no these capabilities, which only reflects and amplifies the incident signal to strengthen the reflection link. Besides, although the proposed active RIS can amplify the incident signal, which is similar to the full-duplex amplify-and-forward (FD-AF) relay, their hardware structures and transmission models are actually quite different. Specifically, FD-AF relay is equipped with RF chains to receive the incident signal and then transmit it after amplification [27]. Due to the long delay of this process, it takes two time slots to complete the transmission of a symbol, and the received signal at the receiver in a time slot actually carries two different symbols, which are transmitted by the transmitter and the FD-AF relay, respectively [27]. Thus, FD-AF has two different transmission models in two adjacent time slots [27, Eq. (22), Eq. (25)], while the proposed active RIS has only one transmission model (3) in every time slot.</p>
+</blockquote>
+<h2 id="activate-RIS的基本信号模型"><a href="#activate-RIS的基本信号模型" class="headerlink" title="activate RIS的基本信号模型"></a>activate RIS的基本信号模型</h2><blockquote>
+<p>With the reflection-type amplifier supported by a power supply, the reflected and amplified signal of an N-element active RIS can be modeled as follows:</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\mathbf{y}=\underbrace{\mathbf{P} \boldsymbol{\Theta} \mathbf{x}}_{\text {Desired signals }}+\underbrace{\mathbf{P \Theta} \mathbf{v}}_{\text {Dynamic noise }}+\underbrace{\mathbf{n}_{\mathrm{s}}}_{\text {Static noise }},</script><p>where $x\in \mathbb{C}^N$ denotes the incident signal, $\Theta \triangleq \operatorname{diag}\left(e^{j \theta<em>{1}}, \cdots, e^{j \theta</em>{N}}\right) \in \mathbb{C}^{N \times N}$ denotes the phase shift matrix of the RIS, $\mathbf{y} \in \mathbb{C}^N$ denotes the signal reflected by the RIS, $\mathbf{P} \triangleq \operatorname{diag}\left(p<em>{1}, \cdots, p</em>{N}\right) \in \mathbb{R}<em>{+}^{N \times N}$, wherein each element can be larger than one thanks to the integrated active amplifier. Due to the use of active components, active RISs consume additional power to amplify the reflected signals, and the thermal noise introduced by active RIS elements cannot be ignored as is done for passive RIS.  Particularly, as shown in (2), the introduced noises can be divided into dynamic noise and static noise [23]. Specifically, $\mathbf{v}$ is related to the input noise and noise factor of the active RIS elements [23], while the static noise $\mathbf{n}</em>\text{s}$ is unrelated to $\mathbf{P}$ and is usually negligible compared with the dynamic noise $\mathbf{P} \Theta \mathbf{v}$ [23]. Without loss of generality, here we assume $\mathbf{v} \sim \mathcal{C} \mathcal{N}\left(\mathbf{0}<em>{N}, \sigma</em>{v}^{2} \mathbf{I}_{N}\right)$<br><br/> &emsp;Then, we consider an active RIS aided multiple-input multiple-output (MIMO) system, where an $M$-antenna base station (BS) simultaneously serve $K$ single-antenna users with the aid of an $N$-element active RIS. Therefore, according to (2), the signal $r_k \in \mathbb{C}$ received at user $k$ can be modeled as</p>
+<script type="math/tex; mode=display">
+r_{k}=(\underbrace{\mathbf{h}_{k}^{H}}_{\text {Direct link }}+\underbrace{\mathbf{f}_{k}^{H} \mathbf{P} \boldsymbol{\Theta} \mathbf{G}}_{\text {Reflection link }}) \sum_{j=1}^{K} \mathbf{w}_{j} s_{j}+\underbrace{\mathbf{f}_{k}^{H} \mathbf{P} \mathbf{\Theta} \mathbf{v}}_{\text {Noises introduced at active RIS }}+\underbrace{z_{k}}_{\text {Noise introduced at user } k}</script><p>where $\mathbf{s} \triangleq\left[s<em>{1}, \cdots, s</em>{K}\right]^{T} \in \mathbb{C}^{K}$ denote the transmitted symbols for $K$ users with normalized power; $G \in \mathbb{C}^{N\times M}$, $\mathbf{h}<em>{k}^{H} \in \mathbb{C}^{1 \times M}$, and $\mathbf{f}</em>{k}^{H} \in \mathbb{C}^{1 \times N}$ denote the channels from BS to RIS, from BS to user $k$, and from RIS to user $k$, respectively; $\mathbf{w}<em>{k} \in \mathbb{C}^{M \times 1}$ denotes the BS beamforming vector for $s_k$; $z_k$ denotes the additive white Gaussion noise (AWGN) at the user and here we assume $z</em>{k} \sim \mathcal{C} \mathcal{N}\left(0, \sigma^{2}\right)$.</p>
+<h2 id="SISO-场景的activate-RIS"><a href="#SISO-场景的activate-RIS" class="headerlink" title="SISO 场景的activate RIS"></a>SISO 场景的activate RIS</h2><blockquote>
+<p>We consider to analyze the capacity gain achievable by active RIS by studying the user’s achievable SNR in a simple SISO scenario. To focus on the capacity gain provided by the active RIS aided reflection link, <mark>we ignore the direct link by setting $\mathbf{h}<em>{k} \triangleq 0$ [28]. For simplicity, we assume that every active RIS element has the same amplification factor ($p</em>{n} \triangleq p,\forall n \in{1, \cdots, N}$)</mark>, and redefine G , g = [g1, · · · , gN ] T , fk , f = [f1, · · · , fN ] T , and wk , w. Then, according to (3), the maximization of the user’s SNR γ subject to the power constraints at the BS and active RIS can be formulated as follows</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/RIS/">RIS</a>
+                    
+                      <a class="hover-with-bg" href="/categories/paper/RIS/active-RIS/">active RIS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/paper/">paper</a>
+                    
+                      <a class="hover-with-bg" href="/tags/IEEE/">IEEE</a>
+                    
+                      <a class="hover-with-bg" href="/tags/latex/">latex</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/15/EM-Algrithm-%E6%9C%9F%E6%9C%9B%E6%9C%80%E5%A4%A7%E5%8C%96%E7%AE%97%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">EM Algorithm 期望最大化算法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/18/Wow-Academic-English/">
+                        <span class="hidden-mobile">Wow Academic English</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: 'e0419fedd5e556b604c8',
+          clientSecret: '6abe437de2748027487d5081923a7dc4b0ebdf98',
+          repo: 'brook1711.github.io',
+          owner: 'Brook1711',
+          admin: ["Brook1711"],
+          id: '6b7c1fbc44697e9a4ef60f027aaa1c14',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', 'UA-185713601-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YREZJ0498S"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YREZJ0498S');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":250,"height":250},"mobile":{"show":true,"scale":0.7},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+</html>
